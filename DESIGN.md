@@ -2,19 +2,19 @@
 name: Acidentes de Trânsito em Porto Alegre
 description: Mapa dos pontos críticos de acidentes de Porto Alegre, lido como uma placa de rua.
 colors:
-  papel: "#eef0ec"
-  tinta: "#1b2a33"
-  cinza: "#5c6b73"
-  azul-selecao: "#1f5a8a"
-  cinza-suave: "#d7dbd9"
-  cinza-linha: "#acb4b6"
-  azul-suave: "#d5dee0"
-  tinta-hover: "#3b484f"
-  calor-1: "#fbe3a1"
-  calor-2: "#f2b263"
-  calor-3: "#dc6b33"
-  calor-4: "#b02e26"
-  calor-5: "#7a0f1f"
+  paper: "#eef0ec"
+  ink: "#1b2a33"
+  slate: "#5c6b73"
+  selection-blue: "#1f5a8a"
+  slate-soft: "#d7dbd9"
+  slate-line: "#acb4b6"
+  blue-soft: "#d5dee0"
+  ink-hover: "#3b484f"
+  heat-1: "#fbe3a1"
+  heat-2: "#f2b263"
+  heat-3: "#dc6b33"
+  heat-4: "#b02e26"
+  heat-5: "#7a0f1f"
 typography:
   display:
     fontFamily: "Barlow, system-ui, sans-serif"
@@ -80,73 +80,73 @@ spacing:
   painel: "360px"
 components:
   button-primary:
-    backgroundColor: "{colors.tinta}"
-    textColor: "{colors.papel}"
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
     typography: "{typography.label}"
     rounded: "{rounded.placa}"
     padding: "0 16px"
     height: "{spacing.alvo}"
   button-primary-hover:
-    backgroundColor: "{colors.tinta-hover}"
+    backgroundColor: "{colors.ink-hover}"
   button-secondary:
     backgroundColor: "transparent"
-    textColor: "{colors.tinta}"
+    textColor: "{colors.ink}"
     typography: "{typography.label}"
     rounded: "{rounded.placa}"
     padding: "0 16px"
     height: "{spacing.alvo}"
   button-secondary-hover:
-    backgroundColor: "{colors.cinza-suave}"
+    backgroundColor: "{colors.slate-soft}"
   button-icon:
     backgroundColor: "transparent"
     rounded: "{rounded.placa}"
     size: "{spacing.alvo}"
   button-icon-hover:
-    backgroundColor: "{colors.cinza-suave}"
+    backgroundColor: "{colors.slate-soft}"
   chip-opcao:
     backgroundColor: "transparent"
-    textColor: "{colors.tinta}"
+    textColor: "{colors.ink}"
     typography: "{typography.label}"
     rounded: "{rounded.placa}"
     padding: "0 12px"
     height: "{spacing.alvo}"
   chip-opcao-selected:
-    backgroundColor: "{colors.tinta}"
-    textColor: "{colors.papel}"
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
   input-campo:
-    backgroundColor: "{colors.papel}"
-    textColor: "{colors.tinta}"
+    backgroundColor: "{colors.paper}"
+    textColor: "{colors.ink}"
     typography: "{typography.body}"
     rounded: "{rounded.placa}"
     padding: "0 10px"
     height: "{spacing.alvo}"
   faixa-ranking:
     backgroundColor: "transparent"
-    textColor: "{colors.tinta}"
+    textColor: "{colors.ink}"
     typography: "{typography.label}"
     padding: "8px 16px"
     height: "56px"
   faixa-ranking-active:
-    backgroundColor: "{colors.azul-suave}"
+    backgroundColor: "{colors.blue-soft}"
   faixa-numero:
-    backgroundColor: "{colors.tinta}"
-    textColor: "{colors.papel}"
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
     typography: "{typography.numero}"
     rounded: "{rounded.placa}"
     size: "40px"
   faixa-numero-active:
-    backgroundColor: "{colors.azul-selecao}"
+    backgroundColor: "{colors.selection-blue}"
   marcador-mapa:
-    backgroundColor: "{colors.tinta}"
-    textColor: "{colors.papel}"
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
     typography: "{typography.placa-mapa}"
     rounded: "{rounded.placa}"
     size: "28px"
   marcador-mapa-active:
-    backgroundColor: "{colors.azul-selecao}"
+    backgroundColor: "{colors.selection-blue}"
   cabecalho:
-    backgroundColor: "{colors.tinta}"
-    textColor: "{colors.papel}"
+    backgroundColor: "{colors.ink}"
+    textColor: "{colors.paper}"
     height: "{spacing.cabecalho}"
     padding: "0 8px 0 16px"
 ---
@@ -176,27 +176,27 @@ Rejeições confirmadas (escopo, seção 9.1, revisão do desenho): azul-petról
 Paleta de placa: três neutros frios, um azul funcional e uma escala de calor que só aparece quando há dado para mostrar.
 
 ### Primary
-- **Tinta de Placa** (tinta): texto principal, fundo do cabeçalho, botão primário, opção marcada, número das faixas e placas do mapa, filetes estruturais de 2 px. É a cor que "pinta" a placa.
+- **Tinta de Placa** (ink): texto principal, fundo do cabeçalho, botão primário, opção marcada, número das faixas e placas do mapa, filetes estruturais de 2 px. É a cor que "pinta" a placa.
 
 ### Secondary
-- **Azul de Seleção** (azul-selecao): exclusivamente estado ativo e foco. Ponto selecionado (placa do mapa e número da faixa), anel de foco de 3 px, links, seleção de texto, `accent-color`. Nunca decora.
-- **Azul Suave** (azul-suave): fundo da faixa ativa no ranking; mistura de 12% do azul de seleção sobre o papel.
+- **Azul de Seleção** (selection-blue): exclusivamente estado ativo e foco. Ponto selecionado (placa do mapa e número da faixa), anel de foco de 3 px, links, seleção de texto, `accent-color`. Nunca decora.
+- **Azul Suave** (blue-soft): fundo da faixa ativa no ranking; mistura de 12% do azul de seleção sobre o papel.
 
 ### Tertiary
-- **Escala de Calor** (calor-1 a calor-5): sequência amarelo-palha, laranja, terracota, vermelho, vinho, legível para daltônicos. Pinta a camada de calor do mapa (paradas em 0,15 / 0,4 / 0,6 / 0,8 / 1), a faixa da legenda, a barra de composição do detalhe (calor-1 sem vítimas, calor-3 feridos, calor-5 mortos) e as amostras da lista.
-- **Vinho** (calor-5) dobra como cor de erro: mensagem de erro de filtro e título do aviso de erro de carga.
+- **Escala de Calor** (heat-1 a heat-5): sequência amarelo-palha, laranja, terracota, vermelho, vinho, legível para daltônicos. Pinta a camada de calor do mapa (paradas em 0,15 / 0,4 / 0,6 / 0,8 / 1), a faixa da legenda, a barra de composição do detalhe (heat-1 sem vítimas, heat-3 feridos, heat-5 mortos) e as amostras da lista.
+- **Vinho** (heat-5) dobra como cor de erro: mensagem de erro de filtro e título do aviso de erro de carga.
 
 ### Neutral
-- **Papel Frio** (papel): fundo de tudo, texto sobre tinta, contorno das placas do mapa.
-- **Cinza-Azulado** (cinza): texto secundário (resumos, rótulos de campo, dicas, ressalvas), borda de campos e opções, alça da folha inferior.
-- **Cinza de Filete** (cinza-linha): divisórias de 1 px entre faixas, linhas de lista e tabela, borda da legenda e do controle de zoom, borda de botão desativado; mistura de 45% do cinza sobre o papel.
-- **Cinza Suave** (cinza-suave): hover de botões secundários, de ícone, de faixas e de opções; blocos de carregamento; mistura de 16% do cinza sobre o papel.
-- **Tinta Clara** (tinta-hover): hover do botão primário (85% tinta, 15% papel).
+- **Papel Frio** (paper): fundo de tudo, texto sobre tinta, contorno das placas do mapa.
+- **Cinza-Azulado** (slate): texto secundário (resumos, rótulos de campo, dicas, ressalvas), borda de campos e opções, alça da folha inferior.
+- **Cinza de Filete** (slate-line): divisórias de 1 px entre faixas, linhas de lista e tabela, borda da legenda e do controle de zoom, borda de botão desativado; mistura de 45% do cinza sobre o papel.
+- **Cinza Suave** (slate-soft): hover de botões secundários, de ícone, de faixas e de opções; blocos de carregamento; mistura de 16% do cinza sobre o papel.
+- **Tinta Clara** (ink-hover): hover do botão primário (85% tinta, 15% papel).
 
-Os derivados (cinza-suave, cinza-linha, azul-suave, tinta-hover) são declarados no código com `color-mix(in srgb, ...)` sobre os tokens de base; os hex acima são a resolução desses valores.
+Os derivados (slate-soft, slate-line, blue-soft, ink-hover) são declarados no código com `color-mix(in srgb, ...)` sobre os tokens de base; os hex acima são a resolução desses valores.
 
 ### Named Rules
-**A Regra do Calor É Dado.** As cores calor-1 a calor-5 aparecem só onde representam acidentes (mapa, legenda, composição, amostras) e, no caso do vinho, erro. Nenhum botão, fundo ou destaque de interface usa a escala.
+**A Regra do Calor É Dado.** As cores heat-1 a heat-5 aparecem só onde representam acidentes (mapa, legenda, composição, amostras) e, no caso do vinho, erro. Nenhum botão, fundo ou destaque de interface usa a escala.
 
 **A Regra do Azul Que Aponta.** O azul de seleção marca o que está escolhido ou focado agora. Se nada está ativo, não há azul na tela além dos links.
 
@@ -235,7 +235,7 @@ Ritmo de espaçamento em passos de 4 px: 4, 8, 12, 16, 20, 24, 32. O recuo horiz
 
 ## Elevation & Depth
 
-O sistema é plano. Não há `box-shadow` em nenhuma superfície; o controle de zoom do Leaflet tem a sombra padrão removida. Profundidade se expressa por três meios: blocos de tinta sólida (cabeçalho, botão primário, placas), filetes (1 px em cinza-linha entre conteúdos, 2 px em tinta na borda superior da folha e da gaveta e entre regiões do painel) e o mapa-base rebaixado (tiles em escala de cinza, contraste 0,82, brilho 1,08, opacidade 0,85) para que calor e placas fiquem à frente. A gaveta de filtros se separa por um véu de tinta a 55%, não por sombra.
+O sistema é plano. Não há `box-shadow` em nenhuma superfície; o controle de zoom do Leaflet tem a sombra padrão removida. Profundidade se expressa por três meios: blocos de tinta sólida (cabeçalho, botão primário, placas), filetes (1 px em slate-line entre conteúdos, 2 px em tinta na borda superior da folha e da gaveta e entre regiões do painel) e o mapa-base rebaixado (tiles em escala de cinza, contraste 0,82, brilho 1,08, opacidade 0,85) para que calor e placas fiquem à frente. A gaveta de filtros se separa por um véu de tinta a 55%, não por sombra.
 
 **A Regra Sem Sombra.** Nenhuma superfície ganha sombra, nem em hover. Para separar, use um filete; para destacar, use tinta sólida.
 
@@ -251,24 +251,24 @@ Cantos de chapa estampada: 4 px (placa) em botões, campos, opções, legenda, c
 Diretos e sólidos, como placa de orientação.
 - **Shape:** canto de placa (4 px), altura mínima de 44 px, borda de 2 px em tinta.
 - **Primary:** fundo tinta, texto papel, 600, 0 16 px de recuo; ícone opcional a 8 px do texto ("Filtrar", "Ver resultados", "Tentar de novo").
-- **Hover / Focus:** hover clareia a tinta (tinta-hover); foco é o anel global de 3 px em azul de seleção, a 2 px de distância.
-- **Secondary:** fundo transparente, texto e borda em tinta; hover em cinza-suave ("Limpar filtros").
-- **Disabled:** borda cinza-linha, texto cinza, fundo transparente.
-- **Ícone:** 44 × 44 px, sem borda, fundo transparente, hover em cinza-suave (fechar detalhe, fechar gaveta).
+- **Hover / Focus:** hover clareia a tinta (ink-hover); foco é o anel global de 3 px em azul de seleção, a 2 px de distância.
+- **Secondary:** fundo transparente, texto e borda em tinta; hover em slate-soft ("Limpar filtros").
+- **Disabled:** borda slate-line, texto cinza, fundo transparente.
+- **Ícone:** 44 × 44 px, sem borda, fundo transparente, hover em slate-soft (fechar detalhe, fechar gaveta).
 - **Textos:** verbo no infinitivo ("Ver no mapa", "Limpar filtros").
 
 ### Chips (opções de filtro)
 - **Style:** caixa de 44 px de altura, borda de 1 px em cinza, canto de placa, texto 600, recuo de 12 px; dias da semana em grade de 7 colunas iguais com 4 px de vão, tipos de via em linha com 8 px.
-- **State:** hover em cinza-suave; marcada vira bloco de tinta com texto papel; o foco do input escondido desenha o anel azul na caixa.
+- **State:** hover em slate-soft; marcada vira bloco de tinta com texto papel; o foco do input escondido desenha o anel azul na caixa.
 - **Contador:** o botão de filtros mostra os filtros ativos num quadrado papel de 24 px, canto 2 px, texto tinta 700 tabular.
 
 ### Cards / Containers
-Não há cartões. Os contêineres são regiões coladas à tela (painel lateral, folha inferior, gaveta) com fundo papel e filetes. A legenda do mapa é a única caixa flutuante: fundo papel, borda de 1 px em cinza-linha, canto de placa, 168 px de largura, 8/10 px de recuo, sem sombra.
+Não há cartões. Os contêineres são regiões coladas à tela (painel lateral, folha inferior, gaveta) com fundo papel e filetes. A legenda do mapa é a única caixa flutuante: fundo papel, borda de 1 px em slate-line, canto de placa, 168 px de largura, 8/10 px de recuo, sem sombra.
 
 ### Inputs / Fields
 - **Style:** fundo papel, borda de 1 px em cinza, canto de placa, 44 px de altura, 0 10 px de recuo, texto tinta 1rem tabular; rótulo acima em nota cinza, 4 px de vão.
 - **Focus:** anel global de 3 px em azul de seleção.
-- **Error / Disabled:** desativado com texto cinza e borda cinza-linha; erro como frase em vinho (calor-5), 600, 0.875rem, abaixo do grupo, dizendo o que aconteceu e o que fazer.
+- **Error / Disabled:** desativado com texto cinza e borda slate-line; erro como frase em vinho (heat-5), 600, 0.875rem, abaixo do grupo, dizendo o que aconteceu e o que fazer.
 
 ### Navigation
 - **Cabeçalho:** placa de rua, faixa de tinta de 56 px com texto papel. Marca à esquerda em 700 (1rem no celular, título curto; 1.125rem no desktop, título completo).
@@ -277,7 +277,7 @@ Não há cartões. Os contêineres são regiões coladas à tela (painel lateral
 - **Foco:** dentro do cabeçalho o anel de foco é papel, não azul.
 
 ### Faixas do ranking (componente-assinatura)
-O ranking em faixas numeradas de 1 a N é o elemento marcante. Cada faixa é um botão de largura total, mínimo de 56 px, em grade de três colunas (40 px, 1fr, auto) com 12 px de vão e 8/16 px de recuo: um bloco de tinta de 40 px com a posição em papel (700, 1.125rem, tabular), o nome do local em 600, e o total alinhado à direita em 700, 1.125rem, tabular. Faixas são separadas por filete de 1 px em cinza-linha. Hover em cinza-suave; a faixa ativa ganha fundo azul-suave e o número vira azul de seleção. Escolher uma faixa leva o mapa ao ponto e abre o detalhe.
+O ranking em faixas numeradas de 1 a N é o elemento marcante. Cada faixa é um botão de largura total, mínimo de 56 px, em grade de três colunas (40 px, 1fr, auto) com 12 px de vão e 8/16 px de recuo: um bloco de tinta de 40 px com a posição em papel (700, 1.125rem, tabular), o nome do local em 600, e o total alinhado à direita em 700, 1.125rem, tabular. Faixas são separadas por filete de 1 px em slate-line. Hover em slate-soft; a faixa ativa ganha fundo blue-soft e o número vira azul de seleção. Escolher uma faixa leva o mapa ao ponto e abre o detalhe.
 
 ### Placas do mapa
 Os pontos críticos de maior posição aparecem como placas numeradas de 28 px: fundo tinta, contorno de 2 px em papel, número em papel 700 0.8125rem tabular, dentro de alvo de 44 px. A placa ativa vira azul de seleção com contorno externo de 2 px em tinta. Placas não se sobrepõem (as de posição pior ficam de fora até o zoom abrir espaço). Com zoom de perto, os demais pontos aparecem como círculos de 5 px em tinta com contorno papel de 1,5 px.
@@ -286,7 +286,7 @@ Os pontos críticos de maior posição aparecem como placas numeradas de 28 px: 
 Abre no lugar do ranking. Topo na mesma grade da faixa (posição em bloco azul, nome em título, botão fechar); total em display com a explicação em cinza na mesma linha de base; barra de composição de 12 px com segmentos de calor separados por 2 px; lista de definição com filetes, amostras de 14 px e valores à direita em 600 tabular.
 
 ### Estados
-- **Carregando:** blocos de 40 px em cinza-suave, canto de placa, alternando largura total e 86%. Sem animação.
+- **Carregando:** blocos de 40 px em slate-soft, canto de placa, alternando largura total e 86%. Sem animação.
 - **Vazio:** título, frase em cinza e botão para limpar filtros.
 - **Erro de carga:** título em vinho, frase em cinza com a data da última atualização da base, botão para tentar de novo.
 
@@ -296,10 +296,10 @@ Uma única transição: a altura da folha do ranking no celular, 220 ms em `cubi
 ## Do's and Don'ts
 
 ### Do:
-- **Do** usar tinta sólida (tinta) com texto papel para tudo que é placa: cabeçalho, botão primário, opção marcada, número de faixa, marcador do mapa.
+- **Do** usar tinta sólida (ink) com texto papel para tudo que é placa: cabeçalho, botão primário, opção marcada, número de faixa, marcador do mapa.
 - **Do** reservar o azul de seleção para estado ativo, foco (anel de 3 px a 2 px de distância) e links.
-- **Do** usar a escala de calor só para dados de acidentes, na ordem calor-1 (menos) a calor-5 (mais), e o vinho para erro.
-- **Do** separar conteúdo com filete de 1 px em cinza-linha e regiões com filete de 2 px em tinta.
+- **Do** usar a escala de calor só para dados de acidentes, na ordem heat-1 (menos) a heat-5 (mais), e o vinho para erro.
+- **Do** separar conteúdo com filete de 1 px em slate-line e regiões com filete de 2 px em tinta.
 - **Do** dar 44 px de área de toque a todo controle e usar canto de 4 px em controles e placas.
 - **Do** usar números tabulares alinhados à direita para toda quantidade, e texto alinhado à esquerda.
 - **Do** manter o mapa-base em escala de cinza rebaixada para que calor e placas fiquem à frente.

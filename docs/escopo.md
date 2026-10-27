@@ -35,7 +35,7 @@ Não há login nem perfil administrativo no MVP. A atualização dos dados é fe
 **Termina quando:** a base do banco reflete o arquivo mais recente e o relatório de carga foi gerado.
 
 ## 4. Regras de negócio
-- **RN-01 – Ponto crítico por raio:** um local é considerado crítico quando tem N ou mais acidentes dentro de um raio de 100 m. *Exemplo:* 12 acidentes em 100 m de uma esquina entre janeiro e dezembro. **N = 20**, definido na análise exploratória (`notebooks/analise_exploratoria.ipynb`, 27/10/2026).
+- **RN-01 – Ponto crítico por raio:** um local é considerado crítico quando tem N ou mais acidentes dentro de um raio de 100 m. *Exemplo:* 12 acidentes em 100 m de uma esquina entre janeiro e dezembro. **N = 20**, definido na análise exploratória (`notebooks/exploratory_analysis.ipynb`, 27/10/2026).
 - **RN-02 – Dados sem coordenada:** registros sem latitude e longitude são descartados do mapa, e a quantidade é exibida na página de metodologia. *Exemplo:* 4% dos registros de 2024 sem coordenada aparecem como "registros fora do mapa: 4%".
 - **RN-03 – Período padrão:** o painel mostra os últimos 5 anos da base por padrão. *Exemplo:* ao abrir a página em 2026, o período considerado é de 2021 a 2026.
 - **RN-04 – Filtros combinam entre si (E):** a seleção de horário e dia da semana é aplicada em conjunto. *Exemplo:* "sábado, 22h às 2h" mostra só acidentes que ocorreram nesse recorte.

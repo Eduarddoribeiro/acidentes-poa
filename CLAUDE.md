@@ -20,15 +20,17 @@ Antes de qualquer tarefa, leia `docs/escopo.md`. Ele define o que está no MVP, 
 
 ## Estrutura
 
-- `backend/`: API em FastAPI, com testes em `backend/tests/`
-- `frontend/`: interface em React com TypeScript e Vite, com traduções em `frontend/src/locales/`
+- `backend/app/`: FastAPI em camadas: `core` (configuração), `domain` (regras puras), `repositories` (SQLite), `services` (casos de uso), `api` (rotas e schemas) e `pipeline` (ingestão). Testes em `backend/tests/unit` e `backend/tests/integration`.
+- `frontend/src/`: React com TypeScript e Vite. `app/` (shell), `features/` (uma pasta por funcionalidade, com componente, CSS Module e teste), `shared/` (api, hooks, i18n, lib, styles, ui). Traduções em `frontend/src/shared/i18n/locales/`.
 - `data/raw/` e `data/processed/`: dados (não versionados)
 - `docs/escopo.md`: escopo aceito
 - `README.md`: instruções para rodar e testar
 
 ## Regras de trabalho
 
-- **Front:** React. Não usar HTML, CSS ou JavaScript puro como base da interface.
+- **Front:** React. Não usar HTML, CSS ou JavaScript puro como base da interface. Estilos em CSS Modules ao lado do componente; tokens em `shared/styles/tokens.css`.
+- **Idioma do código:** inglês (pastas, arquivos, identificadores, rotas e campos da API, colunas do banco, comentários e testes). Interface em pt-BR e en; documentação e commits em português.
+- **Camadas:** dependências em uma direção só (`api` → `services` → `repositories` → `domain`); no front, `shared` não importa de `features`.
 - **Design:** seguir a seção 9.1 de `docs/escopo.md` (direção visual e de interface), aplicando a skill de design de front-end.
 - **Commits:** usar a skill de commit semântico. Mensagens em português, no padrão Conventional Commits, com aprovação antes de cada commit e de cada push.
 - **Atualizações:** toda mudança relevante no projeto recebe uma entrada em "Histórico de atualizações" abaixo, com data, o que mudou e o motivo.
@@ -38,7 +40,7 @@ Antes de qualquer tarefa, leia `docs/escopo.md`. Ele define o que está no MVP, 
 
 - Fase: MVP completo (M1 a M12), versionado no GitHub (`Eduarddoribeiro/acidentes-poa`) e publicado em https://acidentes-poa.onrender.com.
 - Base carregada: extração de 01/10/2026, 87.323 registros, 80.175 válidos, 1.093 pontos críticos com N = 20.
-- Ambiente: Python 3.12 em `backend/.venv`; Node 22 (Vite 8 exige 22.12 ou mais novo). Rodar a carga com `python -m app.ingestao --baixar`.
+- Ambiente: Python 3.12 em `backend/.venv`; Node 22 (Vite 8 exige 22.12 ou mais novo). Rodar a carga com `python -m app.pipeline.ingest --download`.
 - Decisões confirmadas pelo Eduardo: N = 20 e descarte de datas posteriores à extração (escopo, seção 15).
 - Deploy: Render, plano gratuito, serviço `acidentes-poa` gerenciado pelo Blueprint (`render.yaml`), com deploy automático a cada push na `main`. A instância dorme sem uso e leva cerca de 1 minuto para acordar.
 - Próximo passo: itens da Fase 2 (escopo, seção 7), sempre passando pela regra de escopo.
@@ -75,3 +77,11 @@ Antes de qualquer tarefa, leia `docs/escopo.md`. Ele define o que está no MVP, 
 - M9 concluído: sistema publicado no Render em https://acidentes-poa.onrender.com, pelo Blueprint do repositório (commit `f294da6`). Conferido: `/api/health` ok, `/api/meta` com 80.175 registros aceitos, mapa, filtros e ranking funcionando.
 - README com a URL pública e o aviso sobre a demora na primeira visita do plano gratuito.
 - Motivo: fechar o MVP com o sistema acessível em uma URL pública.
+
+### 27/10/2026 (refatoração da arquitetura)
+- Código passou para inglês, com aprovação do Eduardo: pastas, arquivos, identificadores, rotas da API (`/api/metadata`, `/api/hotspots`, `/api/heatmap`), parâmetros (`start`, `end`, `hour_start`, `hour_end`, `weekdays`, `road_types`), campos do JSON, colunas do banco (`accident`, `data_load`), variáveis de ambiente (`ACCIDENTS_DB_PATH`, `HOTSPOT_MIN_ACCIDENTS`) e o notebook (`notebooks/exploratory_analysis.ipynb`). Textos da interface, documentação e commits seguem em português.
+- Backend em camadas (`core`, `domain`, `repositories`, `services`, `api`, `pipeline`), com `create_app(settings)` e injeção de dependências do FastAPI no lugar de estado global; schemas Pydantic documentam o contrato em `/docs`. Testes separados em `unit` e `integration`.
+- Front por funcionalidade (`app`, `features`, `shared`): o `PainelPrincipal` de 274 linhas virou `DashboardPage` com os hooks `useMapData`, `useHotspotSelection` e `useSheetHeight` e os componentes `ResultsPanel` e `ResultsContent`; o mapa foi dividido em camada de calor, marcadores, enquadramento e legenda; o CSS global de 1.012 linhas virou tokens, estilos base e um CSS Module por componente; botões, aviso, carregando e erro viraram componentes em `shared/ui`; os dois hooks de carregamento passaram a usar `useAsyncResource`.
+- Mudança visível só em inglês: um ponto sem nome de rua aparecia como "Local sem nome na base"; agora a API manda `name: null` e a interface traduz. O endereço antigo `#/metodologia` continua funcionando.
+- Conferido: as respostas da API nova são idênticas às da antiga em três recortes (1.093 pontos no padrão), as saídas do notebook têm os mesmos números, 47 testes no backend e 25 no front passam, e a interface foi checada no navegador (desktop, celular a 390 px, gaveta de filtros, detalhe, inglês e metodologia).
+- Motivo: deixar o projeto de portfólio no padrão de mercado, com código em inglês e arquitetura em camadas e por funcionalidade.
