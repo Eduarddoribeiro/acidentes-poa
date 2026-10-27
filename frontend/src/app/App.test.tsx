@@ -45,7 +45,8 @@ describe('App', () => {
 
     expect(await screen.findByRole('button', { name: /Castelo Branco/ })).toBeInTheDocument()
     expect(screen.getByText(/2 locais com 20 ou mais acidentes num raio de 100 m/)).toBeInTheDocument()
-    expect(screen.getByText(/80\.175 acidentes no recorte/)).toBeInTheDocument()
+    expect(screen.getByText(/80\.175 acidentes entre 01\/01\/2021 e 30\/09\/2026/)).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Ver como o mapa é calculado' })).toHaveAttribute('href', '#/methodology')
     // Table version for screen readers.
     expect(screen.getByRole('table')).toHaveTextContent('Av. Azenha')
   })

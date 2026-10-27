@@ -67,7 +67,9 @@ export function ResultsPanel({
       <div className={styles.content} aria-live="polite" aria-busy={busy}>
         {children}
       </div>
-      <p className={styles.disclaimer}>{t('disclaimer')}</p>
+      <p className={styles.disclaimer}>
+        {t('disclaimer')} <a href="#/methodology">{t('methodology.howCalculated')}</a>
+      </p>
     </aside>
   )
 }

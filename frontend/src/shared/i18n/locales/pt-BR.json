@@ -67,9 +67,9 @@
     "rank": "{{rank}}º",
     "expand": "Expandir lista",
     "collapse": "Recolher lista",
-    "totalInSlice_zero": "Nenhum acidente no recorte",
-    "totalInSlice_one": "{{count, number}} acidente no recorte",
-    "totalInSlice_other": "{{count, number}} acidentes no recorte"
+    "totalInSlice_zero": "Nenhum acidente entre {{start}} e {{end}}",
+    "totalInSlice_one": "{{count, number}} acidente entre {{start}} e {{end}}",
+    "totalInSlice_other": "{{count, number}} acidentes entre {{start}} e {{end}}"
   },
   "detail": {
     "close": "Fechar detalhe",
@@ -134,7 +134,8 @@
       "date_after_extraction": "Data posterior à extração da base"
     },
     "howToReadTitle": "Como ler o mapa",
-    "trafficVolume": "O mapa não considera o volume de trânsito. Vias com muito movimento tendem a ter mais registros."
+    "trafficVolume": "O mapa não considera o volume de trânsito. Vias com muito movimento tendem a ter mais registros.",
+    "howCalculated": "Ver como o mapa é calculado"
   },
   "hotspot": {
     "unnamed": "Local sem nome na base"

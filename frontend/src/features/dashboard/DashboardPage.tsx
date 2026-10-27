@@ -4,6 +4,7 @@ import type { Hotspot, Metadata } from '../../shared/api/types'
 import { lastDatasetDate } from '../../shared/api/useMetadata'
 import type { AsyncState } from '../../shared/hooks/useAsyncResource'
 import { DESKTOP_QUERY, useMediaQuery } from '../../shared/hooks/useMediaQuery'
+import { formatDate } from '../../shared/lib/format'
 import { FilterDrawer } from '../filters/FilterDrawer'
 import { FilterForm } from '../filters/FilterForm'
 import { FilterToggleButton } from '../filters/FilterToggleButton'
@@ -29,7 +30,7 @@ interface Props {
 
 /** Main dashboard (flow 3.1): map, filters, ranking and detail. */
 export function DashboardPage({ metadata, onRetryMetadata }: Props) {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const isDesktop = useMediaQuery(DESKTOP_QUERY)
   const [filters, setFilters] = useState<Filters>(emptyFilters)
   const [drawerOpen, setDrawerOpen] = useState(false)
@@ -44,6 +45,9 @@ export function DashboardPage({ metadata, onRetryMetadata }: Props) {
   const activeCount = countActiveFilters(filters, meta?.default_period)
   const radius = meta?.criteria.radius_meters ?? 100
   const minAccidents = meta?.criteria.min_accidents ?? 0
+  // Period of the slice, so a first-time visitor knows which years the numbers cover.
+  const periodStart = formatDate(filters.start ?? meta?.default_period.start, i18n.language)
+  const periodEnd = formatDate(filters.end ?? meta?.default_period.end, i18n.language)
 
   const clearFilters = useCallback(() => setFilters(emptyFilters()), [])
   const { select } = selection
@@ -104,7 +108,7 @@ export function DashboardPage({ metadata, onRetryMetadata }: Props) {
             <>
               {t('ranking.summary', { count: hotspots.length, n: minAccidents, radius })}
               <br />
-              {t('ranking.totalInSlice', { count: data.heatmap.total })}
+              {t('ranking.totalInSlice', { count: data.heatmap.total, start: periodStart, end: periodEnd })}
             </>
           )
         }

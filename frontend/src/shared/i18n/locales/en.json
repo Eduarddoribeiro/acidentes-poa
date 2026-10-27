@@ -66,8 +66,8 @@
     "rank": "#{{rank}}",
     "expand": "Expand list",
     "collapse": "Collapse list",
-    "totalInSlice_one": "{{count, number}} accident in this selection",
-    "totalInSlice_other": "{{count, number}} accidents in this selection"
+    "totalInSlice_one": "{{count, number}} accident between {{start}} and {{end}}",
+    "totalInSlice_other": "{{count, number}} accidents between {{start}} and {{end}}"
   },
   "detail": {
     "close": "Close details",
@@ -132,7 +132,8 @@
       "date_after_extraction": "Date after the dataset extraction"
     },
     "howToReadTitle": "How to read the map",
-    "trafficVolume": "The map does not account for traffic volume. Busy roads tend to have more records."
+    "trafficVolume": "The map does not account for traffic volume. Busy roads tend to have more records.",
+    "howCalculated": "See how the map is calculated"
   },
   "hotspot": {
     "unnamed": "Place without a name in the dataset"
