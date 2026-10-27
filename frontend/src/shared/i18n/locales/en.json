@@ -90,7 +90,9 @@
   "states": {
     "loading": "Loading data",
     "emptyTitle": "No critical spots in this selection",
-    "emptyText": "The filters left too few accidents to form a spot with {{n}} or more records. Widen the period or remove filters.",
+    "emptyText_zero": "No accidents recorded in this selection. Widen the period or remove filters.",
+    "emptyText_one": "This selection has {{count, number}} accident, but no place has {{n}} or more within {{radius}} m. Widen the period or remove filters.",
+    "emptyText_other": "This selection has {{count, number}} accidents, but no place has {{n}} or more within {{radius}} m. That is common in short periods: accidents are spread across the city, and the heatmap still shows where they happened. Widen the period or remove filters.",
     "errorTitle": "The data did not load",
     "errorText": "The API did not respond. Check your connection and try again.",
     "lastUpdate": "Last database update: {{date}}.",

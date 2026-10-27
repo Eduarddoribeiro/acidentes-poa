@@ -90,7 +90,9 @@
   "states": {
     "loading": "Carregando dados",
     "emptyTitle": "Nenhum ponto crítico neste recorte",
-    "emptyText": "Os filtros deixaram poucos acidentes para formar um ponto com {{n}} ou mais registros. Ampliar o período ou retirar filtros.",
+    "emptyText_zero": "Nenhum acidente registrado neste recorte. Ampliar o período ou retirar filtros.",
+    "emptyText_one": "O recorte tem {{count, number}} acidente, mas nenhum local reúne {{n}} ou mais num raio de {{radius}} m. Ampliar o período ou retirar filtros.",
+    "emptyText_other": "O recorte tem {{count, number}} acidentes, mas nenhum local reúne {{n}} ou mais num raio de {{radius}} m. Em períodos curtos isso é comum: os acidentes ficam espalhados pela cidade, e o mapa de calor continua mostrando onde aconteceram. Ampliar o período ou retirar filtros.",
     "errorTitle": "Os dados não carregaram",
     "errorText": "A API não respondeu. Verificar a conexão e tentar de novo.",
     "lastUpdate": "Última atualização da base: {{date}}.",

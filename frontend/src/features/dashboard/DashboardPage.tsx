@@ -122,6 +122,7 @@ export function DashboardPage({ metadata, onRetryMetadata }: Props) {
           selected={selection.selected}
           radius={radius}
           minAccidents={minAccidents}
+          totalInSlice={data?.heatmap.total ?? 0}
           lastDatasetDate={meta?.load.extracted_at ?? lastDatasetDate()}
           onRetry={metadata.status === 'error' ? onRetryMetadata : mapData.reload}
           onSelect={selectHotspot}

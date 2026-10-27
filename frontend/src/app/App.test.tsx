@@ -75,18 +75,22 @@ describe('App', () => {
     expect(await screen.findByRole('alert')).toHaveTextContent('Última atualização da base: 01/10/2026.')
   })
 
-  it('no results offers to clear the filters', async () => {
+  it.each([
+    [937, /O recorte tem 937 acidentes, mas nenhum local reúne 20 ou mais num raio de 100 m\. Em períodos curtos/],
+    [0, /Nenhum acidente registrado neste recorte/],
+  ])('no results with %i accidents explains why and offers to clear the filters', async (total, text) => {
     vi.stubGlobal(
       'fetch',
       respond({
         '/api/metadata': METADATA,
         '/api/hotspots': { radius_meters: 100, min_accidents: 20, hotspots: [] },
-        '/api/heatmap': { total: 0, points: [] },
+        '/api/heatmap': { total, points: [] },
       }),
     )
     render(<App />)
 
     expect(await screen.findByText('Nenhum ponto crítico neste recorte')).toBeInTheDocument()
+    expect(screen.getByText(text)).toBeInTheDocument()
     expect(screen.getAllByRole('button', { name: 'Limpar filtros' }).length).toBeGreaterThan(0)
   })
 

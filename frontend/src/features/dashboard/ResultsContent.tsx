@@ -13,6 +13,8 @@ interface Props {
   selected: Hotspot | null
   radius: number
   minAccidents: number
+  /** Accidents in the slice, to explain an empty ranking. */
+  totalInSlice: number
   lastDatasetDate: string | null
   onRetry: () => void
   onSelect: (hotspot: Hotspot) => void
@@ -27,6 +29,7 @@ export function ResultsContent({
   selected,
   radius,
   minAccidents,
+  totalInSlice,
   lastDatasetDate,
   onRetry,
   onSelect,
@@ -41,7 +44,7 @@ export function ResultsContent({
   if (hotspots.length === 0) {
     return (
       <Notice title={t('states.emptyTitle')}>
-        <p>{t('states.emptyText', { n: minAccidents })}</p>
+        <p>{t('states.emptyText', { count: totalInSlice, n: minAccidents, radius })}</p>
         <Button onClick={onClearFilters}>{t('filters.clear')}</Button>
       </Notice>
     )
