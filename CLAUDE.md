@@ -85,3 +85,9 @@ Antes de qualquer tarefa, leia `docs/escopo.md`. Ele define o que está no MVP, 
 - Mudança visível só em inglês: um ponto sem nome de rua aparecia como "Local sem nome na base"; agora a API manda `name: null` e a interface traduz. O endereço antigo `#/metodologia` continua funcionando.
 - Conferido: as respostas da API nova são idênticas às da antiga em três recortes (1.093 pontos no padrão), as saídas do notebook têm os mesmos números, 47 testes no backend e 25 no front passam, e a interface foi checada no navegador (desktop, celular a 390 px, gaveta de filtros, detalhe, inglês e metodologia).
 - Motivo: deixar o projeto de portfólio no padrão de mercado, com código em inglês e arquitetura em camadas e por funcionalidade.
+
+### 27/10/2026 (meses recentes sem pontos críticos)
+- Diagnóstico: filtrar um mês ou um trimestre zera o ranking porque a RN-01 pede 20 acidentes no mesmo raio de 100 m em qualquer período. Em set/2026 há 937 acidentes no mapa, mas o local mais concentrado tem 7. Em 2026 a cobertura de coordenadas também é menor (76% a 83%), e setembro tem menos registros, talvez por lançamentos atrasados.
+- A mensagem de recorte vazio agora diz quantos acidentes há no recorte, explica por que nenhum vira ponto crítico e lembra que o mapa de calor continua mostrando os acidentes. Sem acidentes, diz isso.
+- N proporcional ao período registrado como F6 na Fase 2 do escopo, para avaliar com a skill de nova ideia.
+- Motivo: o recorte vazio parecia erro ou falta de dados, quando é efeito da regra.

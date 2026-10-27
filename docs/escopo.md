@@ -72,6 +72,7 @@ Não há login nem perfil administrativo no MVP. A atualização dos dados é fe
 | F3 | Tendência temporal (mensal e anual) | Acidentes já guardam data completa, sem perda de precisão na limpeza |
 | F4 | Complemento com dados da PRF para rodovias federais na região metropolitana | Ingestão em módulo separado, com o mesmo esquema de tabela |
 | F5 | Geocodificação de registros sem coordenada | Registros descartados ficam salvos com motivo, então podem ser reprocessados |
+| F6 | Avaliar N proporcional ao período filtrado (ex.: 20 a cada 5 anos, mínimo de 3), para períodos curtos também terem pontos críticos | N já é parâmetro do cálculo (`hotspot_min_accidents`) e o recorte chega pronto ao serviço; precisa passar pela skill de nova ideia, porque muda a RN-01 e a metodologia |
 
 ## 8. Fora do escopo
 - Login, cadastro e perfis de usuário (não há o que proteger no MVP).
@@ -146,3 +147,4 @@ Não há cliente externo neste projeto. Pontos que dependem de decisão do próp
 | 27/10/2026 | N = 20 definido na análise exploratória (RN-01) | Análise da base | Aceito por Eduardo |
 | 27/10/2026 | Tipo de via pela sigla do logradouro, pois a base não tem o campo (RN-05) | Análise da base | Aceito por Eduardo |
 | 27/10/2026 | Registros com data posterior à extração são descartados (motivo próprio) | Análise da base | Aceito por Eduardo |
+| 27/10/2026 | F6 na Fase 2: N proporcional ao período, porque com N = 20 um mês isolado não tem nenhum ponto crítico (em set/2026, o local mais concentrado teve 7 acidentes) | Uso do painel | Registrado para avaliar |
