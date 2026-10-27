@@ -1,6 +1,137 @@
 {
   "app": {
     "titulo": "Traffic accidents in Porto Alegre",
-    "status": "Under construction. The first version of the map arrives with the MVP."
+    "tituloCurto": "Accidents in POA",
+    "pularParaConteudo": "Skip to content"
+  },
+  "nav": {
+    "mapa": "Map",
+    "metodologia": "Methodology",
+    "idioma": "Language"
+  },
+  "filtros": {
+    "titulo": "Filters",
+    "abrir": "Filter",
+    "abrirComContagem_one": "Filter, {{count}} active filter",
+    "abrirComContagem_other": "Filter, {{count}} active filters",
+    "fechar": "Close filters",
+    "verResultados": "See results",
+    "periodo": "Period",
+    "de": "From",
+    "ate": "To",
+    "horario": "Time of day",
+    "horaInicio": "From",
+    "horaFim": "Until",
+    "qualquerHora": "Any time",
+    "dicaMeiaNoite": "Ranges can cross midnight, such as 10 pm to 2 am.",
+    "dias": "Day of the week",
+    "vias": "Road type",
+    "limpar": "Clear filters",
+    "periodoInvalido": "The start date is after the end date. Adjust the period."
+  },
+  "dias": {
+    "curto": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun"
+    ],
+    "longo": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ]
+  },
+  "vias": {
+    "avenida": "Avenue",
+    "rua": "Street",
+    "estrada": "Road",
+    "rodovia": "Highway",
+    "outra": "Other"
+  },
+  "ranking": {
+    "titulo": "Critical spots",
+    "resumo_one": "{{count}} place with {{n}} or more accidents within {{raio}} m",
+    "resumo_other": "{{count}} places with {{n}} or more accidents within {{raio}} m",
+    "acidentes_one": "{{count, number}} accident",
+    "acidentes_other": "{{count, number}} accidents",
+    "verNoMapa": "Show on map",
+    "posicao": "#{{posicao}}",
+    "alturaFolha": "Adjust list height",
+    "expandir": "Expand list",
+    "recolher": "Collapse list",
+    "totalRecorte_one": "{{count, number}} accident in this selection",
+    "totalRecorte_other": "{{count, number}} accidents in this selection"
+  },
+  "detalhe": {
+    "fechar": "Close details",
+    "total": "Accidents within {{raio}} m",
+    "composicao": "Breakdown",
+    "semVitimas": "No casualties",
+    "comFeridos": "With injuries",
+    "comMortos": "With deaths",
+    "periodo": "Records period",
+    "periodoValor": "{{inicio}} to {{fim}}",
+    "regiao": "Region",
+    "ressalva": "A concentration of records, not a cause or blame."
+  },
+  "tabela": {
+    "legenda": "Critical spots as a table, from most to fewest accidents",
+    "posicao": "Rank",
+    "local": "Place",
+    "total": "Accidents"
+  },
+  "estados": {
+    "carregando": "Loading data",
+    "vazioTitulo": "No critical spots in this selection",
+    "vazioTexto": "The filters left too few accidents to form a spot with {{n}} or more records. Widen the period or remove filters.",
+    "erroTitulo": "The data did not load",
+    "erroTexto": "The API did not respond. Check your connection and try again.",
+    "erroBase": "Last database update: {{data}}.",
+    "tentarDeNovo": "Try again"
+  },
+  "mapa": {
+    "rotulo": "Heat map of accidents in Porto Alegre",
+    "legenda": "Accident concentration",
+    "menos": "fewer",
+    "mais": "more",
+    "pontoRotulo": "#{{posicao}}, {{nome}}, {{total}} accidents"
+  },
+  "ressalva": "The data shows incidents recorded by EPTC, the city traffic agency. A hot spot on the map means a concentration of records, not driver blame or the cause of the accidents.",
+  "metodologia": {
+    "titulo": "Methodology",
+    "voltar": "Back to the map",
+    "fonteTitulo": "Source",
+    "fonteTexto": "Open dataset “Acidentes de Trânsito – Acidentes” (traffic accidents), published by the City of Porto Alegre on the #DataPoa portal, with records from EPTC.",
+    "fonteLink": "See the dataset on #DataPoa",
+    "extracao": "Dataset extracted on {{data}}. Loaded into the system on {{carga}}.",
+    "periodoTitulo": "Period",
+    "periodoTexto": "The dataset covers {{inicio}} to {{fim}}. The dashboard opens with the last 5 calendar years of data, from {{padraoInicio}} to {{padraoFim}}.",
+    "criterioTitulo": "Critical spot criterion",
+    "criterioTexto": "A place is critical when it has {{n}} or more accidents within {{raio}} m. The calculation starts from the accident with the most neighbours within the radius, forms the spot and removes those accidents from the pool. It repeats until no group of {{n}} or more remains, so each accident counts in a single spot.",
+    "criterioN": "The value {{n}} came from the exploratory analysis of the dataset: it is the level that separates intersections with persistent concentration from the rest of the city.",
+    "viasTitulo": "Road type",
+    "viasTexto": "The dataset has no road type field. The classification uses the prefix the City writes before each street name: AV (avenue), R (street), ESTR (road). Other prefixes, such as lane, square and tunnel, go into “Other”.",
+    "horarioTexto": "Filters combine with each other. A record with no time in the dataset shows normally, but leaves the selection when a time filter is on. The day of the week is calculated from the date.",
+    "descartesTitulo": "Records off the map",
+    "descartesTexto": "Of {{lidos}} records read, {{descartados}} were left off the map ({{percentual}}).",
+    "motivos": {
+      "sem_coordenada": "No latitude and longitude",
+      "coordenada_fora_de_poa": "Coordinates outside Porto Alegre",
+      "data_invalida": "Missing or invalid date",
+      "id_duplicado": "Repeated record",
+      "id_invalido": "Missing identifier",
+      "data_posterior_a_extracao": "Date after the dataset extraction"
+    },
+    "ressalvaTitulo": "How to read the map",
+    "ressalvaVolume": "The map does not account for traffic volume. Busy roads tend to have more records.",
+    "carregando": "Loading the methodology"
   }
 }
