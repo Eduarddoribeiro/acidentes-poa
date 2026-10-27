@@ -142,9 +142,11 @@ O `Dockerfile` compila o front e serve tudo pela API, numa imagem só. O `render
 
 1. Envie o repositório para o GitHub.
 2. Em [render.com](https://render.com), crie a conta e escolha **New > Blueprint**, apontando para o repositório.
-3. Na primeira subida, a API abre na hora e a base é baixada e carregada em segundo plano. Até a carga terminar, a interface mostra "Os dados não carregaram" com o botão "Tentar de novo".
+3. O build baixa a base e grava o banco dentro da imagem, então o serviço já sobe com os dados. Se o download falhar no build, o deploy segue, e a base é carregada em segundo plano quando o serviço sobe. Até a carga terminar, a interface mostra "Os dados não carregaram" com o botão "Tentar de novo".
 
-Limitações do plano gratuito: o serviço dorme após 15 minutos sem acesso (leva cerca de 1 minuto para acordar), e o disco é apagado a cada deploy ou reinício, então a base é baixada de novo. Se o servidor da Prefeitura estiver lento, mantenha a página aberta durante a primeira carga para o serviço não dormir no meio dela.
+Limitações do plano gratuito: o serviço dorme após 15 minutos sem acesso e leva cerca de 1 minuto para acordar. O disco é apagado a cada deploy ou reinício, mas o banco vem dentro da imagem, então os dados voltam junto.
+
+Para atualizar a base publicada, use **Manual Deploy > Clear build cache & deploy** no Render. Sem limpar o cache, o Render reaproveita a etapa do build que baixa a base enquanto `backend/` não mudar.
 
 Para testar a imagem localmente:
 
