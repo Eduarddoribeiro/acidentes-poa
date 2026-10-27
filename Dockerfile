@@ -1,6 +1,6 @@
 # Imagem única: compila o front e serve tudo pela API (FastAPI serve frontend/dist).
 
-FROM node:20-alpine AS front
+FROM node:22-alpine AS front
 WORKDIR /app/frontend
 COPY frontend/package.json frontend/package-lock.json ./
 RUN npm ci

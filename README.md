@@ -52,7 +52,7 @@ docs/              escopo do projeto e prints
 
 ## Como rodar
 
-Requisitos: Python 3.11 ou mais novo, Node.js 20 ou mais novo.
+Requisitos: Python 3.11 ou mais novo, Node.js 22.12 ou mais novo.
 
 **1. Backend e carga da base**
 
