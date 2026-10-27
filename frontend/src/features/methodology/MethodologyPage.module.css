@@ -1,0 +1,66 @@
+.page {
+  display: grid;
+  gap: 32px;
+  max-width: 72ch;
+  padding: 24px 16px 64px;
+}
+
+.page section {
+  display: grid;
+  gap: 10px;
+}
+
+.page section > h2 {
+  margin-bottom: 2px;
+}
+
+.page p {
+  max-width: 68ch;
+}
+
+.page h1 {
+  margin-top: -16px;
+}
+
+.howToRead {
+  padding-top: 16px;
+  border-top: 2px solid var(--ink);
+}
+
+.backLink,
+.externalLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: var(--touch-target);
+  font-weight: 600;
+}
+
+.backLink {
+  justify-self: start;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.table th,
+.table td {
+  padding: 10px 0;
+  border-top: 1px solid var(--slate-line);
+  text-align: left;
+  font-weight: 400;
+}
+
+.table td {
+  text-align: right;
+  font-weight: 600;
+}
+
+@media (min-width: 900px) {
+  .page {
+    padding: 40px 32px 80px;
+  }
+}

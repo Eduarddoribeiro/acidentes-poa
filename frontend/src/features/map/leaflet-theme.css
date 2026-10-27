@@ -1,0 +1,40 @@
+/* Leaflet's own controls, restyled to the road-signage direction. Global on purpose: Leaflet owns these classes. */
+.leaflet-container {
+  font-family: var(--font);
+  background: var(--paper);
+}
+
+/* OpenStreetMap tiles in light gray, so the heatmap and the signs stand in front. */
+.leaflet-tile-pane {
+  filter: grayscale(1) contrast(0.82) brightness(1.08);
+  opacity: 0.85;
+}
+
+.leaflet-control-attribution {
+  background: color-mix(in srgb, var(--paper) 92%, transparent) !important;
+  color: var(--slate);
+  font-size: 0.75rem;
+}
+
+.leaflet-control-attribution a {
+  color: var(--ink);
+}
+
+.leaflet-bar {
+  border: 1px solid var(--slate-line) !important;
+  border-radius: var(--sign-radius) !important;
+  box-shadow: none !important;
+}
+
+.leaflet-bar a {
+  width: var(--touch-target) !important;
+  height: var(--touch-target) !important;
+  line-height: var(--touch-target) !important;
+  background: var(--paper) !important;
+  color: var(--ink) !important;
+  font: 600 1.25rem/var(--touch-target) var(--font) !important;
+}
+
+.leaflet-bar a:hover {
+  background: var(--slate-soft) !important;
+}

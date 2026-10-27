@@ -1,0 +1,52 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: var(--touch-target);
+  padding: 0 16px;
+  border: 2px solid var(--ink);
+  border-radius: var(--sign-radius);
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: color-mix(in srgb, var(--ink) 85%, var(--paper));
+}
+
+.secondary {
+  background: transparent;
+  color: var(--ink);
+}
+
+.secondary:hover {
+  background: var(--slate-soft);
+}
+
+.button:disabled {
+  border-color: var(--slate-line);
+  background: transparent;
+  color: var(--slate);
+  cursor: not-allowed;
+}
+
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: var(--touch-target);
+  height: var(--touch-target);
+  padding: 0;
+  border: 0;
+  border-radius: var(--sign-radius);
+  background: transparent;
+  cursor: pointer;
+}
+
+.iconButton:hover {
+  background: var(--slate-soft);
+}

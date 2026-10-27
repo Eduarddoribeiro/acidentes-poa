@@ -1,0 +1,100 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: var(--header-height);
+  padding: 0 8px 0 16px;
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.header :focus-visible {
+  outline-color: var(--paper);
+}
+
+.brand {
+  flex: 1;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title {
+  display: none;
+}
+
+.nav {
+  display: flex;
+  flex: none;
+}
+
+.nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--touch-target);
+  padding: 0 10px;
+  color: inherit;
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 3px solid transparent;
+  border-top: 3px solid transparent;
+}
+
+/* On mobile the brand already leads to the map; the Map link only shows on desktop. */
+.nav a:first-child {
+  display: none;
+}
+
+.nav a[aria-current='page'] {
+  border-bottom-color: var(--paper);
+}
+
+.nav a:not([aria-current='page']) {
+  color: color-mix(in srgb, var(--paper) 82%, var(--ink));
+}
+
+.language select {
+  min-height: var(--touch-target);
+  padding: 0 8px;
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--paper) 45%, var(--ink));
+  border-radius: var(--sign-radius);
+  color: var(--paper);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.language option {
+  color: var(--ink);
+  background: var(--paper);
+}
+
+@media (min-width: 900px) {
+  .title {
+    display: inline;
+  }
+
+  .shortTitle {
+    display: none;
+  }
+
+  .brand {
+    font-size: 1.125rem;
+  }
+
+  .nav a {
+    padding: 0 14px;
+  }
+
+  .nav a:first-child {
+    display: inline-flex;
+  }
+}

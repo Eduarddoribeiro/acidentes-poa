@@ -1,0 +1,138 @@
+{
+  "app": {
+    "title": "Acidentes de trânsito em Porto Alegre",
+    "shortTitle": "Acidentes em POA",
+    "skipToContent": "Pular para o conteúdo"
+  },
+  "nav": {
+    "map": "Mapa",
+    "methodology": "Metodologia",
+    "language": "Idioma"
+  },
+  "filters": {
+    "title": "Filtros",
+    "open": "Filtrar",
+    "openWithCount_one": "Filtrar, {{count}} filtro ativo",
+    "openWithCount_other": "Filtrar, {{count}} filtros ativos",
+    "close": "Fechar filtros",
+    "showResults": "Ver resultados",
+    "period": "Período",
+    "from": "De",
+    "to": "Até",
+    "time": "Horário",
+    "hourStart": "Das",
+    "hourEnd": "Até as",
+    "anyHour": "Qualquer hora",
+    "midnightHint": "Intervalos podem passar da meia-noite, como 22h às 2h.",
+    "weekdays": "Dia da semana",
+    "roadTypes": "Tipo de via",
+    "clear": "Limpar filtros",
+    "invalidPeriod": "A data inicial é depois da final. Ajustar o período."
+  },
+  "weekdays": {
+    "short": [
+      "Seg",
+      "Ter",
+      "Qua",
+      "Qui",
+      "Sex",
+      "Sáb",
+      "Dom"
+    ],
+    "long": [
+      "segunda",
+      "terça",
+      "quarta",
+      "quinta",
+      "sexta",
+      "sábado",
+      "domingo"
+    ]
+  },
+  "roadTypes": {
+    "avenue": "Avenida",
+    "street": "Rua",
+    "road": "Estrada",
+    "highway": "Rodovia",
+    "other": "Outras"
+  },
+  "ranking": {
+    "title": "Pontos críticos",
+    "summary_one": "{{count}} local com {{n}} ou mais acidentes num raio de {{radius}} m",
+    "summary_other": "{{count}} locais com {{n}} ou mais acidentes num raio de {{radius}} m",
+    "accidents_one": "{{count, number}} acidente",
+    "accidents_other": "{{count, number}} acidentes",
+    "showOnMap": "Ver no mapa",
+    "rank": "{{rank}}º",
+    "expand": "Expandir lista",
+    "collapse": "Recolher lista",
+    "totalInSlice_one": "{{count, number}} acidente no recorte",
+    "totalInSlice_other": "{{count, number}} acidentes no recorte"
+  },
+  "detail": {
+    "close": "Fechar detalhe",
+    "total": "Acidentes no raio de {{radius}} m",
+    "composition": "Composição",
+    "noInjuries": "Sem vítimas",
+    "withInjuries": "Com feridos",
+    "withFatalities": "Com mortos",
+    "period": "Período dos registros",
+    "periodValue": "{{start}} a {{end}}",
+    "region": "Região",
+    "disclaimer": "Concentração de registros, não causa nem culpa."
+  },
+  "table": {
+    "caption": "Pontos críticos em tabela, do maior para o menor número de acidentes",
+    "rank": "Posição",
+    "place": "Local",
+    "total": "Acidentes"
+  },
+  "states": {
+    "loading": "Carregando dados",
+    "emptyTitle": "Nenhum ponto crítico neste recorte",
+    "emptyText": "Os filtros deixaram poucos acidentes para formar um ponto com {{n}} ou mais registros. Ampliar o período ou retirar filtros.",
+    "errorTitle": "Os dados não carregaram",
+    "errorText": "A API não respondeu. Verificar a conexão e tentar de novo.",
+    "lastUpdate": "Última atualização da base: {{date}}.",
+    "retry": "Tentar de novo"
+  },
+  "map": {
+    "label": "Mapa de calor dos acidentes em Porto Alegre",
+    "legend": "Concentração de acidentes",
+    "less": "menos",
+    "more": "mais",
+    "hotspotLabel": "{{rank}}º, {{name}}, {{total}} acidentes"
+  },
+  "disclaimer": "Os dados mostram ocorrências registradas pela EPTC. Um ponto alto no mapa indica concentração de registros, não culpa de condutores nem causa dos acidentes.",
+  "methodology": {
+    "title": "Metodologia",
+    "back": "Voltar ao mapa",
+    "sourceTitle": "Fonte",
+    "sourceText": "Base aberta “Acidentes de Trânsito – Acidentes”, publicada pela Prefeitura de Porto Alegre no portal #DataPoa, com registros da EPTC.",
+    "sourceLink": "Ver o conjunto de dados no #DataPoa",
+    "extraction": "Extração da base: {{date}}. Carga no sistema: {{loadedAt}}.",
+    "periodTitle": "Período",
+    "periodText": "A base cobre de {{start}} a {{end}}. O painel abre com os últimos 5 anos civis da base, de {{defaultStart}} a {{defaultEnd}}.",
+    "criteriaTitle": "Critério de ponto crítico",
+    "criteriaText": "Um local é crítico quando tem {{n}} ou mais acidentes num raio de {{radius}} m. O cálculo começa pelo acidente com mais vizinhos no raio, forma o ponto e retira esses acidentes da disputa. Repete até não restar grupo com {{n}} ou mais. Assim cada acidente conta em um único ponto.",
+    "criteriaN": "O valor {{n}} saiu da análise exploratória da base: é o patamar que separa as esquinas de concentração persistente do restante da cidade.",
+    "roadTypesTitle": "Tipo de via",
+    "roadTypesText": "A base não tem um campo de tipo de via. A classificação usa a sigla com que a Prefeitura escreve o logradouro: AV (avenida), R (rua), ESTR (estrada). As demais siglas, como travessa, praça e túnel, entram em “Outras”.",
+    "timeText": "Os filtros combinam entre si. Um registro sem horário na base aparece normalmente, mas sai do recorte quando há filtro de horário. O dia da semana é calculado a partir da data.",
+    "discardsTitle": "Registros fora do mapa",
+    "discardsText": "De {{read}} registros lidos, {{discarded}} ficaram fora do mapa ({{percent}}).",
+    "reasons": {
+      "missing_coordinates": "Sem latitude e longitude",
+      "outside_city": "Coordenada fora de Porto Alegre",
+      "invalid_date": "Data ausente ou inválida",
+      "duplicate_id": "Registro repetido",
+      "invalid_id": "Identificador ausente",
+      "date_after_extraction": "Data posterior à extração da base"
+    },
+    "howToReadTitle": "Como ler o mapa",
+    "trafficVolume": "O mapa não considera o volume de trânsito. Vias com muito movimento tendem a ter mais registros."
+  },
+  "hotspot": {
+    "unnamed": "Local sem nome na base"
+  }
+}

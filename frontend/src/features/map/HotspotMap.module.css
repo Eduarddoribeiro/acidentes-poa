@@ -1,0 +1,39 @@
+.map {
+  width: 100%;
+  height: 100%;
+  background: var(--paper);
+}
+
+/* Hotspot markers: numbered signs. Used in the HTML of Leaflet's divIcon. */
+.markerTarget {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+}
+
+.marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 2px solid var(--paper);
+  border-radius: var(--sign-radius);
+  background: var(--ink);
+  color: var(--paper);
+  font: 700 0.8125rem/1 var(--font);
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+
+.markerActive {
+  background: var(--selection-blue);
+  outline: 2px solid var(--ink);
+}
+
+:global(.leaflet-marker-icon):focus-visible .marker {
+  outline: 3px solid var(--selection-blue);
+  outline-offset: 2px;
+}

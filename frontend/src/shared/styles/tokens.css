@@ -1,0 +1,22 @@
+/* Visual direction: road signage (docs/escopo.md, section 9.1).
+   Direct information, quick reading, nothing decorative: no cards, shadows or interface gradients. */
+:root {
+  --paper: #eef0ec;
+  --ink: #1b2a33;
+  --slate: #5c6b73;
+  --selection-blue: #1f5a8a;
+  --heat-1: #fbe3a1;
+  --heat-3: #dc6b33;
+  --heat-5: #7a0f1f;
+
+  /* Derived from the palette, for states and loading blocks. */
+  --slate-soft: color-mix(in srgb, var(--slate) 16%, var(--paper));
+  --slate-line: color-mix(in srgb, var(--slate) 45%, var(--paper));
+  --blue-soft: color-mix(in srgb, var(--selection-blue) 12%, var(--paper));
+
+  --font: 'Barlow', system-ui, sans-serif;
+  --header-height: 56px;
+  --panel-width: 360px;
+  --touch-target: 44px;
+  --sign-radius: 4px;
+}

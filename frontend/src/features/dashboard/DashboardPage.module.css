@@ -1,0 +1,22 @@
+/* Mobile first: the map fills the screen and the results panel is a bottom sheet. */
+.dashboard {
+  position: relative;
+  height: calc(100dvh - var(--header-height));
+}
+
+.mapArea {
+  position: absolute;
+  inset: 0;
+}
+
+.mapFallback {
+  width: 100%;
+  height: 100%;
+  background: var(--paper);
+}
+
+@media (min-width: 900px) {
+  .mapArea {
+    left: var(--panel-width);
+  }
+}

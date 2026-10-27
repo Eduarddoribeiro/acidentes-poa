@@ -1,0 +1,16 @@
+.loading {
+  display: grid;
+  gap: 8px;
+  padding: 12px 16px;
+}
+
+.block {
+  display: block;
+  height: 40px;
+  border-radius: var(--sign-radius);
+  background: var(--slate-soft);
+}
+
+.block:nth-child(odd) {
+  width: 86%;
+}

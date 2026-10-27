@@ -1,0 +1,130 @@
+.panel {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border-top: 2px solid var(--ink);
+  height: 174px;
+  /* The only transition in the interface (section 9.1). */
+  transition: height 220ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.medium {
+  height: 52dvh;
+}
+
+.high {
+  height: calc(100dvh - var(--header-height) - 16px);
+}
+
+.handle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: none;
+  width: 100%;
+  height: var(--touch-target);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: grab;
+  touch-action: none;
+}
+
+.handle span {
+  width: 40px;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--slate);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 0 16px 12px;
+}
+
+.summary {
+  margin-top: 2px;
+  color: var(--slate);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* On mobile, at the low height, the summary takes one line so the first band fits whole. */
+@media (max-width: 899px) {
+  .low .summary {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
+.content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border-top: 1px solid var(--slate-line);
+}
+
+.disclaimer {
+  display: none;
+  padding: 12px 16px 16px;
+  color: var(--slate);
+  font-size: 0.875rem;
+  border-top: 1px solid var(--slate-line);
+}
+
+.high .disclaimer {
+  display: block;
+}
+
+@media (min-width: 900px) {
+  .panel,
+  .medium,
+  .high {
+    position: absolute;
+    top: 0;
+    right: auto;
+    width: var(--panel-width);
+    height: auto;
+    border-top: 0;
+    border-right: 1px solid var(--slate-line);
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    transition: none;
+  }
+
+  .filters {
+    padding: 20px 16px 24px;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .header {
+    padding: 20px 16px 12px;
+  }
+
+  .content {
+    flex: none;
+    overflow: visible;
+  }
+
+  .disclaimer {
+    display: block;
+    margin-top: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel {
+    transition: none;
+  }
+}

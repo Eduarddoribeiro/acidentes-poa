@@ -1,0 +1,111 @@
+.detail {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+}
+
+.top {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  align-items: start;
+  gap: 12px;
+}
+
+.top h2 {
+  padding-top: 8px;
+  overflow-wrap: anywhere;
+}
+
+.rank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  border-radius: var(--sign-radius);
+  background: var(--selection-blue);
+  color: var(--paper);
+  font-weight: 700;
+  font-size: 1.125rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.total {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  color: var(--slate);
+}
+
+.number {
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.subtitle {
+  margin-top: 8px;
+}
+
+.bar {
+  display: flex;
+  gap: 2px;
+  height: 12px;
+}
+
+/* Severity colors, shared by the bar and the legend swatches. */
+.noInjuries {
+  background: var(--heat-1);
+}
+
+.withInjuries {
+  background: var(--heat-3);
+}
+
+.withFatalities {
+  background: var(--heat-5);
+}
+
+.swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  outline: 1px solid var(--slate-line);
+}
+
+.list {
+  display: grid;
+  margin: 0;
+}
+
+.list div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-top: 1px solid var(--slate-line);
+}
+
+.list dt {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.list dd {
+  margin: 0;
+  text-align: right;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.facts dd {
+  font-weight: 400;
+}
+
+.disclaimer {
+  color: var(--slate);
+  font-size: 0.875rem;
+}

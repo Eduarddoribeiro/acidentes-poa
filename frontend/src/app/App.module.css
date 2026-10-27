@@ -1,0 +1,18 @@
+.methodology {
+  min-height: 100dvh;
+}
+
+.skipLink {
+  position: absolute;
+  left: 8px;
+  top: -100px;
+  z-index: 2000;
+  padding: 10px 16px;
+  background: var(--paper);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.skipLink:focus {
+  top: 8px;
+}
