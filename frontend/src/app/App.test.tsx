@@ -91,6 +91,9 @@ describe('App', () => {
 
     expect(await screen.findByText('Nenhum ponto crítico neste recorte')).toBeInTheDocument()
     expect(screen.getByText(text)).toBeInTheDocument()
+    // Zero takes the plural in Portuguese: never "0 local".
+    expect(screen.getByText(/Nenhum local com 20 ou mais acidentes num raio de 100 m/)).toBeInTheDocument()
+    expect(screen.queryByText(/0 locais?/)).not.toBeInTheDocument()
     expect(screen.getAllByRole('button', { name: 'Limpar filtros' }).length).toBeGreaterThan(0)
   })
 

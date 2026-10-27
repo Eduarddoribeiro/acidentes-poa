@@ -58,6 +58,7 @@
   },
   "ranking": {
     "title": "Pontos críticos",
+    "summary_zero": "Nenhum local com {{n}} ou mais acidentes num raio de {{radius}} m",
     "summary_one": "{{count}} local com {{n}} ou mais acidentes num raio de {{radius}} m",
     "summary_other": "{{count}} locais com {{n}} ou mais acidentes num raio de {{radius}} m",
     "accidents_one": "{{count, number}} acidente",
@@ -66,6 +67,7 @@
     "rank": "{{rank}}º",
     "expand": "Expandir lista",
     "collapse": "Recolher lista",
+    "totalInSlice_zero": "Nenhum acidente no recorte",
     "totalInSlice_one": "{{count, number}} acidente no recorte",
     "totalInSlice_other": "{{count, number}} acidentes no recorte"
   },
