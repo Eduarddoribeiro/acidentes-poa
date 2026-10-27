@@ -36,8 +36,11 @@ Antes de qualquer tarefa, leia `docs/escopo.md`. Ele define o que está no MVP, 
 
 ## Estado atual
 
-- Fase: estrutura inicial criada (API com rota de saúde, front React com i18n). M1 ainda não iniciado.
-- Próximo passo: baixar a base da Prefeitura e verificar colunas, cobertura de coordenadas e período.
+- Fase: MVP implementado localmente (M1 a M8, M10 a M12). Falta publicar (M9, deploy) e aprovar os commits.
+- Base carregada: extração de 01/10/2026, 87.323 registros, 80.175 válidos, 1.093 pontos críticos com N = 20.
+- Ambiente: Python 3.12 em `backend/.venv`; Node 22. Rodar a carga com `python -m app.ingestao --baixar`.
+- Decisões a confirmar com o Eduardo: N = 20 e descarte de datas posteriores à extração (escopo, seção 15).
+- Próximo passo: publicar no Render (escolhido em 27/10/2026), com `render.yaml` e `Dockerfile` prontos. Falta o Eduardo criar a conta e conectar o repositório do GitHub.
 
 ## Histórico de atualizações
 
@@ -49,3 +52,15 @@ Antes de qualquer tarefa, leia `docs/escopo.md`. Ele define o que está no MVP, 
 - Estrutura inicial: `.gitignore`, `README.md`, pastas de dados, API FastAPI com `/api/health` e teste, front React com TypeScript, Vite e i18n (pt-BR e en).
 - Leitura obrigatória do escopo adicionada ao CLAUDE.md, para que qualquer sessão comece pelo escopo.
 - Motivo: entregar o projeto pronto para continuar no terminal, começando pelo M1.
+
+### 27/10/2026
+- M1 e M2: ingestão (`backend/app/ingestao.py`) com download, validação de colunas, remoção de colunas pessoais, backup do banco e relatório de carga; limpeza (`limpeza.py`) com motivos de descarte: sem coordenada, coordenada fora de Porto Alegre, data inválida, data posterior à extração, id repetido ou ausente.
+- M3: pontos críticos por raio de 100 m com agrupamento guloso em grade (`pontos_criticos.py`); API com `/api/meta`, `/api/pontos-criticos` e `/api/calor`, filtros combinados e cache.
+- M8: notebook `notebooks/analise_exploratoria.ipynb`; N = 20 escolhido pela distribuição (com 30, filtros de um dia ou da noite quase zeram o mapa; com 10, 87% dos acidentes viram "críticos").
+- RN-05: a base não tem tipo de via; a classificação usa a sigla do logradouro (AV, R, ESTR), com aprovação do Eduardo.
+- M4, M5, M6, M7, M10, M11, M12: interface em React com mapa de calor (tiles do OpenStreetMap), placas numeradas, filtros, ranking em faixas, detalhe, metodologia, pt-BR e en. Lighthouse de acessibilidade: 97 no mapa (celular), 100 na metodologia e no desktop.
+- `PRODUCT.md` e `.impeccable/` criados para a skill de design, derivados do escopo.
+- M9 (parcial): README com instalação, metodologia e prints; `Dockerfile` que compila o front e serve tudo pela API.
+- Deploy: Render no plano gratuito, escolhido pelo Eduardo. A API sobe na hora e carrega a base em segundo plano, porque o Render espera a porta abrir em poucos minutos.
+- Motivo: entregar o MVP completo para revisão antes do deploy.
+

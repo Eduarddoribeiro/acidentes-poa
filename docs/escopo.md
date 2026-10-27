@@ -35,11 +35,11 @@ Não há login nem perfil administrativo no MVP. A atualização dos dados é fe
 **Termina quando:** a base do banco reflete o arquivo mais recente e o relatório de carga foi gerado.
 
 ## 4. Regras de negócio
-- **RN-01 – Ponto crítico por raio:** um local é considerado crítico quando tem N ou mais acidentes dentro de um raio de 100 m. *Exemplo:* 12 acidentes em 100 m de uma esquina entre janeiro e dezembro. O valor de N será definido após a análise exploratória.
+- **RN-01 – Ponto crítico por raio:** um local é considerado crítico quando tem N ou mais acidentes dentro de um raio de 100 m. *Exemplo:* 12 acidentes em 100 m de uma esquina entre janeiro e dezembro. **N = 20**, definido na análise exploratória (`notebooks/analise_exploratoria.ipynb`, 27/10/2026).
 - **RN-02 – Dados sem coordenada:** registros sem latitude e longitude são descartados do mapa, e a quantidade é exibida na página de metodologia. *Exemplo:* 4% dos registros de 2024 sem coordenada aparecem como "registros fora do mapa: 4%".
 - **RN-03 – Período padrão:** o painel mostra os últimos 5 anos da base por padrão. *Exemplo:* ao abrir a página em 2026, o período considerado é de 2021 a 2026.
 - **RN-04 – Filtros combinam entre si (E):** a seleção de horário e dia da semana é aplicada em conjunto. *Exemplo:* "sábado, 22h às 2h" mostra só acidentes que ocorreram nesse recorte.
-- **RN-05 – Tipo de via:** o filtro de tipo de via usa a classificação já existente na base. Se a base não tiver esse campo, o filtro não entra no MVP. *Exemplo:* avenida, rua, rodovia.
+- **RN-05 – Tipo de via:** o filtro de tipo de via usa a classificação já existente na base. Se a base não tiver esse campo, o filtro não entra no MVP. *Exemplo:* avenida, rua, rodovia. *Decisão de 27/10/2026:* a base não tem campo próprio, mas todo logradouro começa pela sigla oficial da Prefeitura (AV, R, ESTR); essa sigla é a classificação usada (avenida, rua, estrada e outras).
 - **RN-06 – Ressalva de uso:** a página deixa claro que os dados mostram ocorrências registradas, não culpa de condutores nem diagnóstico de causas. *Exemplo:* um ponto alto no mapa indica concentração de registros, não causa.
 
 ## 5. Entidades e ciclo de vida
@@ -113,7 +113,7 @@ Não há login nem perfil administrativo no MVP. A atualização dos dados é fe
 ## 10. Modelo de dados (resumo)
 - **acidente**: id, data, horário, dia da semana, latitude, longitude, tipo de via, bairro (se disponível), gravidade (se disponível), origem do arquivo, status (válido ou descartado), motivo do descarte.
 - **carga**: id, arquivo de origem, data da carga, total lido, total aceito, total descartado.
-- Ponto crítico é calculado em tempo de consulta ou gravado em tabela derivada, a definir na fase 2 de implementação.
+- Ponto crítico é calculado em tempo de consulta, com cache por recorte de filtros (cerca de 1,6 s na primeira consulta).
 
 ## 11. Técnica
 - **Stack:** Python com pandas para ingestão e análise; FastAPI como API em JSON; front em React (Vite) com react-leaflet para o mapa e leaflet.heat para o mapa de calor; react-i18next para português e inglês; testes com pytest no backend e Vitest com Testing Library no front; SQLite no MVP, com possibilidade de migrar para PostgreSQL. Motivo: stack moderna, comum em vagas júnior, com separação clara entre dados e interface.
@@ -129,10 +129,11 @@ Não há login nem perfil administrativo no MVP. A atualização dos dados é fe
 - **Escopo crescer:** tentação de incluir clima e modelo de gravidade já no MVP. Mitigação: estão na Fase 2.
 
 ## 13. Suposições a confirmar
-- [SUPOSIÇÃO] A base da prefeitura tem latitude e longitude para a maioria dos registros (quem confirma: Eduardo, na análise inicial).
-- [SUPOSIÇÃO] A base traz tipo de via e gravidade; se não trouxer, os filtros e a Fase 2 são ajustados (quem confirma: Eduardo).
-- [SUPOSIÇÃO] A base cobre pelo menos os últimos 5 anos (quem confirma: Eduardo).
-- [SUPOSIÇÃO] O valor de N para ponto crítico será definido pela distribuição dos dados (quem confirma: Eduardo, na análise exploratória).
+- [CONFIRMADO 27/10/2026] A base tem latitude e longitude para 91,8% dos registros (91% a 96% de 2021 a 2025; 81% em 2026).
+- [CONFIRMADO 27/10/2026] Gravidade existe (campo UPS: sem vítimas, com feridos, com mortos). Tipo de via não existe como campo; vem da sigla do logradouro (RN-05).
+- [CONFIRMADO 27/10/2026] A base cobre de 01/01/2021 a 30/09/2026.
+- [CONFIRMADO 27/10/2026] N = 20, escolhido pela distribuição dos dados (seção 6 do notebook).
+- [CONFIRMADO 27/10/2026] A base não traz nome, CPF nem placa (LGPD).
 
 ## 14. Perguntas para o cliente
 Não há cliente externo neste projeto. Pontos que dependem de decisão do próprio desenvolvedor estão na seção 13.
@@ -142,3 +143,6 @@ Não há cliente externo neste projeto. Pontos que dependem de decisão do próp
 |---|---|---|---|
 | 25/10/2026 | Escopo inicial | Planejamento | Rascunho |
 | 26/10/2026 | Escopo aceito; custo confirmado como gratuito (domínio opcional) | Eduardo | Aceito |
+| 27/10/2026 | N = 20 definido na análise exploratória (RN-01) | Análise da base | Proposto; Eduardo confirma |
+| 27/10/2026 | Tipo de via pela sigla do logradouro, pois a base não tem o campo (RN-05) | Análise da base | Aceito por Eduardo |
+| 27/10/2026 | Registros com data posterior à extração são descartados (motivo próprio) | Análise da base | Proposto; Eduardo confirma |

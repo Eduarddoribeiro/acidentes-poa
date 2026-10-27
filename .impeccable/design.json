@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-27T00:00:00-03:00",
+  "title": "Design System: Acidentes de Trânsito em Porto Alegre",
+  "extensions": {
+    "colorMeta": {
+      "tinta": { "role": "primary", "displayName": "Tinta de Placa", "canonical": "#1b2a33", "tonalRamp": ["#0d151a", "#1b2a33", "#2c3d47", "#3f525d", "#5a6d77", "#7d8f98", "#a9b7be", "#d9e1e5"] },
+      "azul-selecao": { "role": "secondary", "displayName": "Azul de Seleção", "canonical": "#1f5a8a", "tonalRamp": ["#0c2439", "#143c5e", "#1f5a8a", "#3474a6", "#5891bd", "#86b0d1", "#b6cfe3", "#e2ecf5"] },
+      "azul-suave": { "role": "secondary", "displayName": "Azul Suave", "canonical": "color-mix(in srgb, var(--azul-selecao) 12%, var(--papel))", "tonalRamp": ["#7f98a8", "#93a9b6", "#a7b9c3", "#b9c8cf", "#c7d3d9", "#d5dee0", "#e0e7e8", "#ebf0f0"] },
+      "calor-1": { "role": "tertiary", "displayName": "Calor 1, Palha", "canonical": "#fbe3a1", "tonalRamp": ["#5c4a17", "#806829", "#a5883d", "#c9a955", "#e6c672", "#fbe3a1", "#fdedc3", "#fef7e3"] },
+      "calor-2": { "role": "tertiary", "displayName": "Calor 2, Laranja Claro", "canonical": "#f2b263", "tonalRamp": ["#4f2f08", "#734711", "#98601c", "#bf7d2e", "#e09a48", "#f2b263", "#f8d09d", "#fcebd4"] },
+      "calor-3": { "role": "tertiary", "displayName": "Calor 3, Terracota", "canonical": "#dc6b33", "tonalRamp": ["#3f1706", "#62250d", "#883516", "#b04922", "#dc6b33", "#e98f62", "#f3b898", "#fae0d2"] },
+      "calor-4": { "role": "tertiary", "displayName": "Calor 4, Vermelho", "canonical": "#b02e26", "tonalRamp": ["#330a08", "#561410", "#7d1e18", "#b02e26", "#cf5148", "#e2817a", "#efb3ae", "#f8dfdd"] },
+      "calor-5": { "role": "tertiary", "displayName": "Calor 5, Vinho (também erro)", "canonical": "#7a0f1f", "tonalRamp": ["#2a040a", "#4f0913", "#7a0f1f", "#a2283a", "#c4505f", "#db818c", "#ecb3ba", "#f8e0e3"] },
+      "papel": { "role": "neutral", "displayName": "Papel Frio", "canonical": "#eef0ec", "tonalRamp": ["#22241f", "#3c3f38", "#5a5e55", "#7b7f75", "#9fa39a", "#c4c7c0", "#dfe1dc", "#eef0ec"] },
+      "cinza": { "role": "neutral", "displayName": "Cinza-Azulado", "canonical": "#5c6b73", "tonalRamp": ["#1a2024", "#2e383e", "#445158", "#5c6b73", "#78878e", "#97a4aa", "#bcc5c9", "#e1e6e8"] },
+      "cinza-linha": { "role": "neutral", "displayName": "Cinza de Filete", "canonical": "color-mix(in srgb, var(--cinza) 45%, var(--papel))", "tonalRamp": ["#3a4245", "#535c60", "#6d777b", "#889196", "#acb4b6", "#c4cacb", "#d9dddd", "#ebeeed"] },
+      "cinza-suave": { "role": "neutral", "displayName": "Cinza Suave", "canonical": "color-mix(in srgb, var(--cinza) 16%, var(--papel))", "tonalRamp": ["#5d6563", "#787f7d", "#939a97", "#aeb4b1", "#c4c9c7", "#d7dbd9", "#e3e6e4", "#eef0ee"] },
+      "tinta-hover": { "role": "primary", "displayName": "Tinta Clara (hover)", "canonical": "color-mix(in srgb, var(--tinta) 85%, var(--papel))", "tonalRamp": ["#14191c", "#252f35", "#3b484f", "#56636a", "#738087", "#949fa5", "#bac2c6", "#e0e5e7"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Total de acidentes no detalhe do ponto; um número por tela." },
+      "headline": { "displayName": "Headline", "purpose": "Título de página (Metodologia)." },
+      "title": { "displayName": "Title", "purpose": "Títulos de seção, nome do ponto, Pontos críticos, título da gaveta." },
+      "title-sm": { "displayName": "Title pequeno", "purpose": "Títulos de aviso e legendas de grupo de filtro." },
+      "numero": { "displayName": "Número", "purpose": "Posição e total das faixas do ranking; posição no detalhe." },
+      "body": { "displayName": "Body", "purpose": "Texto corrido; 68ch na Metodologia." },
+      "label": { "displayName": "Label", "purpose": "Botões, opções, nome do local na faixa, links de navegação." },
+      "nota": { "displayName": "Nota", "purpose": "Rótulos de campo, resumos, dicas, ressalvas, legenda do mapa." },
+      "placa-mapa": { "displayName": "Placa do mapa", "purpose": "Número dentro da placa de 28 px no mapa." }
+    },
+    "shadows": [],
+    "focus": [
+      { "name": "anel-foco", "value": "outline: 3px solid var(--azul-selecao); outline-offset: 2px", "purpose": "Foco de teclado global." },
+      { "name": "anel-foco-cabecalho", "value": "outline: 3px solid var(--papel); outline-offset: 2px", "purpose": "Foco dentro do cabeçalho de tinta." },
+      { "name": "anel-foco-faixa", "value": "outline: 3px solid var(--azul-selecao); outline-offset: -3px", "purpose": "Foco interno nas faixas do ranking, que ocupam a largura toda." }
+    ],
+    "overlays": [
+      { "name": "veu-gaveta", "value": "color-mix(in srgb, var(--tinta) 55%, transparent)", "purpose": "Véu atrás da gaveta de filtros no celular." },
+      { "name": "mapa-base-rebaixado", "value": "filter: grayscale(1) contrast(0.82) brightness(1.08); opacity: 0.85", "purpose": "Tiles do OpenStreetMap em cinza para calor e placas ficarem à frente." }
+    ],
+    "heatRamp": [
+      { "stop": 0.15, "color": "#FBE3A1" },
+      { "stop": 0.4, "color": "#F2B263" },
+      { "stop": 0.6, "color": "#DC6B33" },
+      { "stop": 0.8, "color": "#B02E26" },
+      { "stop": 1, "color": "#7A0F1F" }
+    ],
+    "motion": [
+      { "name": "folha-ranking", "value": "height 220ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Única transição de interface: altura da folha do ranking no celular. Desligada sob prefers-reduced-motion e no desktop." },
+      { "name": "voo-mapa", "value": "flyTo 0.6s", "purpose": "Mapa leva ao ponto escolhido; vira setView direto sob movimento reduzido." }
+    ],
+    "breakpoints": [
+      { "name": "desktop", "value": "900px" }
+    ],
+    "sheetHeights": [
+      { "name": "baixa", "value": "174px" },
+      { "name": "media", "value": "52dvh" },
+      { "name": "alta", "value": "calc(100dvh - 56px - 16px)" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Botão primário",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ação principal em bloco de tinta, como placa de orientação.",
+      "html": "<button class=\"ds-botao\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M4 6h16M7 12h10M10 18h4\"/></svg>Filtrar</button>",
+      "css": ".ds-botao { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 16px; border: 2px solid var(--tinta, #1b2a33); border-radius: 4px; background: var(--tinta, #1b2a33); color: var(--papel, #eef0ec); font-family: 'Barlow', system-ui, sans-serif; font-size: 1rem; font-weight: 600; cursor: pointer; } .ds-botao:hover { background: color-mix(in srgb, var(--tinta, #1b2a33) 85%, var(--papel, #eef0ec)); } .ds-botao:focus-visible { outline: 3px solid var(--azul-selecao, #1f5a8a); outline-offset: 2px; }"
+    },
+    {
+      "name": "Botão secundário",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Ação de apoio com contorno de tinta, como Limpar filtros.",
+      "html": "<button class=\"ds-botao-sec\">Limpar filtros</button>",
+      "css": ".ds-botao-sec { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 16px; border: 2px solid var(--tinta, #1b2a33); border-radius: 4px; background: transparent; color: var(--tinta, #1b2a33); font-family: 'Barlow', system-ui, sans-serif; font-size: 1rem; font-weight: 600; cursor: pointer; } .ds-botao-sec:hover { background: color-mix(in srgb, var(--cinza, #5c6b73) 16%, var(--papel, #eef0ec)); } .ds-botao-sec:focus-visible { outline: 3px solid var(--azul-selecao, #1f5a8a); outline-offset: 2px; } .ds-botao-sec:disabled { border-color: color-mix(in srgb, var(--cinza, #5c6b73) 45%, var(--papel, #eef0ec)); color: var(--cinza, #5c6b73); cursor: not-allowed; }"
+    },
+    {
+      "name": "Botão de ícone",
+      "kind": "button",
+      "refersTo": "button-icon",
+      "description": "Fechar detalhe ou gaveta; 44 px, sem borda.",
+      "html": "<button class=\"ds-botao-icone\" aria-label=\"Fechar\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"square\" stroke-linejoin=\"miter\" aria-hidden=\"true\"><path d=\"M6 6l12 12M18 6L6 18\"/></svg></button>",
+      "css": ".ds-botao-icone { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: 0; border: 0; border-radius: 4px; background: transparent; color: var(--tinta, #1b2a33); cursor: pointer; } .ds-botao-icone:hover { background: color-mix(in srgb, var(--cinza, #5c6b73) 16%, var(--papel, #eef0ec)); } .ds-botao-icone:focus-visible { outline: 3px solid var(--azul-selecao, #1f5a8a); outline-offset: 2px; }"
+    },
+    {
+      "name": "Opção de filtro",
+      "kind": "chip",
+      "refersTo": "chip-opcao",
+      "description": "Dia da semana ou tipo de via; marcada vira bloco de tinta.",
+      "html": "<div class=\"ds-opcoes\"><label class=\"ds-opcao\"><input type=\"checkbox\"><span>Avenida</span></label><label class=\"ds-opcao\"><input type=\"checkbox\" checked><span>Rua</span></label><label class=\"ds-opcao\"><input type=\"checkbox\"><span>Estrada</span></label></div>",
+      "css": ".ds-opcoes { display: flex; flex-wrap: wrap; gap: 8px; font-family: 'Barlow', system-ui, sans-serif; } .ds-opcao { position: relative; display: inline-flex; } .ds-opcao input { position: absolute; inset: 0; opacity: 0; margin: 0; cursor: pointer; } .ds-opcao span { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 12px; border: 1px solid var(--cinza, #5c6b73); border-radius: 4px; color: var(--tinta, #1b2a33); font-weight: 600; pointer-events: none; } .ds-opcao input:hover + span { background: color-mix(in srgb, var(--cinza, #5c6b73) 16%, var(--papel, #eef0ec)); } .ds-opcao input:checked + span { background: var(--tinta, #1b2a33); border-color: var(--tinta, #1b2a33); color: var(--papel, #eef0ec); } .ds-opcao input:focus-visible + span { outline: 3px solid var(--azul-selecao, #1f5a8a); outline-offset: 2px; }"
+    },
+    {
+      "name": "Campo",
+      "kind": "input",
+      "refersTo": "input-campo",
+      "description": "Data ou horário com rótulo em nota cinza acima.",
+      "html": "<label class=\"ds-campo\">De<input type=\"date\" value=\"2021-01-01\"></label>",
+      "css": ".ds-campo { display: grid; gap: 4px; font-family: 'Barlow', system-ui, sans-serif; font-size: 0.875rem; color: var(--cinza, #5c6b73); } .ds-campo input { min-height: 44px; padding: 0 10px; border: 1px solid var(--cinza, #5c6b73); border-radius: 4px; background: var(--papel, #eef0ec); color: var(--tinta, #1b2a33); font: inherit; font-size: 1rem; font-variant-numeric: tabular-nums; } .ds-campo input:focus-visible { outline: 3px solid var(--azul-selecao, #1f5a8a); outline-offset: 2px; } .ds-campo input:disabled { color: var(--cinza, #5c6b73); border-color: color-mix(in srgb, var(--cinza, #5c6b73) 45%, var(--papel, #eef0ec)); }"
+    },
+    {
+      "name": "Cabeçalho",
+      "kind": "nav",
+      "refersTo": "cabecalho",
+      "description": "Faixa de tinta de 56 px; página atual com filete inferior de 3 px em papel.",
+      "html": "<header class=\"ds-cabecalho\"><a class=\"ds-cabecalho__marca\" href=\"#\">Acidentes de trânsito em Porto Alegre</a><nav class=\"ds-cabecalho__nav\"><a href=\"#\" aria-current=\"page\">Mapa</a><a href=\"#\">Metodologia</a></nav></header>",
+      "css": ".ds-cabecalho { display: flex; align-items: center; gap: 4px; height: 56px; padding: 0 8px 0 16px; background: var(--tinta, #1b2a33); color: var(--papel, #eef0ec); font-family: 'Barlow', system-ui, sans-serif; } .ds-cabecalho__marca { flex: 1; color: inherit; text-decoration: none; font-weight: 700; font-size: 1.125rem; } .ds-cabecalho__nav { display: flex; } .ds-cabecalho__nav a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 14px; color: color-mix(in srgb, var(--papel, #eef0ec) 82%, var(--tinta, #1b2a33)); text-decoration: none; font-weight: 600; border-top: 3px solid transparent; border-bottom: 3px solid transparent; } .ds-cabecalho__nav a[aria-current='page'] { color: var(--papel, #eef0ec); border-bottom-color: var(--papel, #eef0ec); } .ds-cabecalho a:focus-visible { outline: 3px solid var(--papel, #eef0ec); outline-offset: 2px; }"
+    },
+    {
+      "name": "Faixas do ranking",
+      "kind": "custom",
+      "refersTo": "faixa-ranking",
+      "description": "Componente-assinatura: placas numeradas de 1 a N com nome e total à direita.",
+      "html": "<ol class=\"ds-ranking\"><li><button class=\"ds-faixa\"><span class=\"ds-faixa__numero\">1</span><span class=\"ds-faixa__nome\">Av. Presidente Castelo Branco</span><span class=\"ds-faixa__total\">382</span></button></li><li><button class=\"ds-faixa ds-faixa--ativa\"><span class=\"ds-faixa__numero\">2</span><span class=\"ds-faixa__nome\">Av. Azenha</span><span class=\"ds-faixa__total\">311</span></button></li><li><button class=\"ds-faixa\"><span class=\"ds-faixa__numero\">3</span><span class=\"ds-faixa__nome\">Av. Osvaldo Aranha</span><span class=\"ds-faixa__total\">284</span></button></li></ol>",
+      "css": ".ds-ranking { margin: 0; padding: 0; list-style: none; background: var(--papel, #eef0ec); font-family: 'Barlow', system-ui, sans-serif; } .ds-ranking li + li { border-top: 1px solid color-mix(in srgb, var(--cinza, #5c6b73) 45%, var(--papel, #eef0ec)); } .ds-faixa { display: grid; grid-template-columns: 40px 1fr auto; align-items: center; gap: 12px; width: 100%; min-height: 56px; padding: 8px 16px; border: 0; background: transparent; color: var(--tinta, #1b2a33); font: inherit; text-align: left; cursor: pointer; } .ds-faixa:hover { background: color-mix(in srgb, var(--cinza, #5c6b73) 16%, var(--papel, #eef0ec)); } .ds-faixa:focus-visible { outline: 3px solid var(--azul-selecao, #1f5a8a); outline-offset: -3px; } .ds-faixa__numero { display: flex; align-items: center; justify-content: center; height: 40px; border-radius: 4px; background: var(--tinta, #1b2a33); color: var(--papel, #eef0ec); font-weight: 700; font-size: 1.125rem; font-variant-numeric: tabular-nums; } .ds-faixa__nome { font-weight: 600; line-height: 1.25; } .ds-faixa__total { min-width: 3ch; text-align: right; font-weight: 700; font-size: 1.125rem; font-variant-numeric: tabular-nums; } .ds-faixa--ativa { background: color-mix(in srgb, var(--azul-selecao, #1f5a8a) 12%, var(--papel, #eef0ec)); } .ds-faixa--ativa .ds-faixa__numero { background: var(--azul-selecao, #1f5a8a); }"
+    },
+    {
+      "name": "Placa do mapa",
+      "kind": "custom",
+      "refersTo": "marcador-mapa",
+      "description": "Ponto crítico numerado no mapa: 28 px visíveis dentro de alvo de 44 px.",
+      "html": "<div class=\"ds-placas\"><span class=\"ds-marcador-alvo\"><span class=\"ds-marcador\">1</span></span><span class=\"ds-marcador-alvo\"><span class=\"ds-marcador ds-marcador--ativo\">2</span></span><span class=\"ds-marcador-alvo\"><span class=\"ds-marcador\">14</span></span></div>",
+      "css": ".ds-placas { display: flex; gap: 8px; padding: 12px; background: #d9dcd7; } .ds-marcador-alvo { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; } .ds-marcador { display: flex; align-items: center; justify-content: center; width: 28px; height: 28px; border: 2px solid var(--papel, #eef0ec); border-radius: 4px; background: var(--tinta, #1b2a33); color: var(--papel, #eef0ec); font: 700 0.8125rem/1 'Barlow', system-ui, sans-serif; font-variant-numeric: tabular-nums; cursor: pointer; } .ds-marcador-alvo:focus-visible .ds-marcador { outline: 3px solid var(--azul-selecao, #1f5a8a); outline-offset: 2px; } .ds-marcador--ativo { background: var(--azul-selecao, #1f5a8a); outline: 2px solid var(--tinta, #1b2a33); }"
+    },
+    {
+      "name": "Legenda do calor",
+      "kind": "card",
+      "refersTo": "legenda",
+      "description": "Única caixa flutuante sobre o mapa; a faixa é gradiente de dado, não de interface.",
+      "html": "<div class=\"ds-legenda\"><span>Concentração de acidentes</span><span class=\"ds-legenda__escala\"></span><span class=\"ds-legenda__extremos\"><span>menos</span><span>mais</span></span></div>",
+      "css": ".ds-legenda { display: grid; gap: 4px; width: 168px; padding: 8px 10px; background: var(--papel, #eef0ec); border: 1px solid color-mix(in srgb, var(--cinza, #5c6b73) 45%, var(--papel, #eef0ec)); border-radius: 4px; color: var(--tinta, #1b2a33); font-family: 'Barlow', system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; } .ds-legenda__escala { display: block; height: 10px; border-radius: 1px; background: linear-gradient(to right, #FBE3A1, #F2B263, #DC6B33, #B02E26, #7A0F1F); } .ds-legenda__extremos { display: flex; justify-content: space-between; color: var(--cinza, #5c6b73); font-weight: 400; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "A Placa de Rua",
+    "overview": "A interface é lida como sinalização viária: informação direta, leitura rápida, nada decorativo. Os dados são o conteúdo. O mapa da cidade ocupa a tela, o calor dos acidentes fica à frente de um mapa-base desbotado em cinza, e tudo o que é texto ou controle se comporta como placa: tinta escura sobre papel frio, uma única família tipográfica, números tabulares, cantos levemente arredondados como chapa estampada.\n\nA densidade é de painel de consulta, não de página de marketing. No celular, o mapa é tela cheia e o ranking sobe numa folha inferior; no desktop, um painel fixo de 360 px à esquerda carrega filtros e ranking. A hierarquia vem de peso e tamanho do tipo, de blocos de tinta sólida e de filetes finos, nunca de sombras, cartões ou gradientes de interface. A única cor quente da interface é a escala de calor, e ela pertence aos dados.\n\nRejeições confirmadas (escopo, seção 9.1, revisão do desenho): azul-petróleo de painel genérico, cartões com sombra e rótulos em caixa-alta.",
+    "keyCharacteristics": [
+      "Papel frio, tinta azul-escura e um cinza-azulado; azul só para seleção e foco.",
+      "Escala de calor sequencial de 5 passos, reservada a dados (mapa, legenda, composição, erro).",
+      "Barlow em 400, 600 e 700, com números tabulares em toda quantidade.",
+      "Placas numeradas: blocos de tinta com número claro, no ranking e no mapa.",
+      "Plano: sem sombras, sem cartões; filetes de 1 px separam conteúdo, filetes de 2 px em tinta separam regiões.",
+      "Alvos de toque de 44 px em todos os controles."
+    ],
+    "rules": [
+      { "name": "A Regra do Calor É Dado", "body": "As cores calor-1 a calor-5 aparecem só onde representam acidentes (mapa, legenda, composição, amostras) e, no caso do vinho, erro. Nenhum botão, fundo ou destaque de interface usa a escala.", "section": "colors" },
+      { "name": "A Regra do Azul Que Aponta", "body": "O azul de seleção marca o que está escolhido ou focado agora. Se nada está ativo, não há azul na tela além dos links.", "section": "colors" },
+      { "name": "A Regra da Caixa Normal", "body": "Nenhum rótulo, título ou botão em caixa-alta, e nenhuma fonte monoespaçada. Hierarquia por peso, não por caixa.", "section": "typography" },
+      { "name": "A Regra do Número Tabular", "body": "Toda quantidade, data ou posição usa font-variant-numeric: tabular-nums e, em listas, fica alinhada à direita. Texto fica sempre alinhado à esquerda.", "section": "typography" },
+      { "name": "A Regra dos 44", "body": "Todo controle tocável (botão, opção, campo, link de navegação, alça da folha, placa do mapa) tem área mínima de 44 px, mesmo quando o desenho visível é menor (a placa do mapa mede 28 px dentro de um alvo de 44).", "section": "layout" },
+      { "name": "A Regra Sem Sombra", "body": "Nenhuma superfície ganha sombra, nem em hover. Para separar, use um filete; para destacar, use tinta sólida.", "section": "elevation" },
+      { "name": "A Regra do Filete Honesto", "body": "Bordas só onde há separação real de conteúdo: entre faixas, linhas de lista, regiões do painel. Nunca uma borda envolvendo um grupo só para \"encaixotar\" (sem cartões).", "section": "elevation" }
+    ],
+    "dos": [
+      "Do usar tinta sólida (tinta) com texto papel para tudo que é placa: cabeçalho, botão primário, opção marcada, número de faixa, marcador do mapa.",
+      "Do reservar o azul de seleção para estado ativo, foco (anel de 3 px a 2 px de distância) e links.",
+      "Do usar a escala de calor só para dados de acidentes, na ordem calor-1 (menos) a calor-5 (mais), e o vinho para erro.",
+      "Do separar conteúdo com filete de 1 px em cinza-linha e regiões com filete de 2 px em tinta.",
+      "Do dar 44 px de área de toque a todo controle e usar canto de 4 px em controles e placas.",
+      "Do usar números tabulares alinhados à direita para toda quantidade, e texto alinhado à esquerda.",
+      "Do manter o mapa-base em escala de cinza rebaixada para que calor e placas fiquem à frente."
+    ],
+    "donts": [
+      "Don't usar sombras, cartões ou gradientes de interface. A faixa da legenda e a camada de calor são gradientes de dado, não de interface, e são permitidas.",
+      "Don't escrever rótulos, títulos ou botões em caixa-alta, nem usar fonte monoespaçada.",
+      "Don't introduzir uma segunda família tipográfica ou pesos fora de 400, 600 e 700.",
+      "Don't usar azul-petróleo nem qualquer cor nova fora da paleta de cinco grupos.",
+      "Don't adicionar transições além da folha do ranking; nenhum hover animado, nenhum carregamento pulsante.",
+      "Don't envolver grupos com bordas só para encaixotar; borda só onde há separação real de conteúdo."
+    ]
+  }
+}
