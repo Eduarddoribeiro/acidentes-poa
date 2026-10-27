@@ -91,3 +91,8 @@ Antes de qualquer tarefa, leia `docs/escopo.md`. Ele define o que está no MVP, 
 - A mensagem de recorte vazio agora diz quantos acidentes há no recorte, explica por que nenhum vira ponto crítico e lembra que o mapa de calor continua mostrando os acidentes. Sem acidentes, diz isso.
 - N proporcional ao período registrado como F6 na Fase 2 do escopo, para avaliar com a skill de nova ideia.
 - Motivo: o recorte vazio parecia erro ou falta de dados, quando é efeito da regra.
+
+### 27/10/2026 (antes de divulgar)
+- Base dentro da imagem Docker: o build roda a ingestão e grava o banco na imagem. No plano gratuito, o disco é apagado quando o serviço dorme ou reinicia, e a primeira visita depois disso esperava a base ser baixada de novo do servidor lento da Prefeitura. Se o download falhar no build, o `docker-entrypoint.sh` continua carregando a base ao subir. Para atualizar a base publicada: "Clear build cache & deploy" no Render.
+- Plural do zero em português: "0 local com 20 ou mais" virou "Nenhum local com 20 ou mais"; o total do recorte vazio virou "Nenhum acidente no recorte".
+- Motivo: preparar o projeto para ser divulgado no LinkedIn, onde a primeira visita costuma chegar com o serviço dormindo.
