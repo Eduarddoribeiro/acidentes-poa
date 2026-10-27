@@ -96,3 +96,6 @@ Antes de qualquer tarefa, leia `docs/escopo.md`. Ele define o que está no MVP, 
 - Base dentro da imagem Docker: o build roda a ingestão e grava o banco na imagem. No plano gratuito, o disco é apagado quando o serviço dorme ou reinicia, e a primeira visita depois disso esperava a base ser baixada de novo do servidor lento da Prefeitura. Se o download falhar no build, o `docker-entrypoint.sh` continua carregando a base ao subir. Para atualizar a base publicada: "Clear build cache & deploy" no Render.
 - Plural do zero em português: "0 local com 20 ou mais" virou "Nenhum local com 20 ou mais"; o total do recorte vazio virou "Nenhum acidente no recorte".
 - Motivo: preparar o projeto para ser divulgado no LinkedIn, onde a primeira visita costuma chegar com o serviço dormindo.
+- Prévia de link para LinkedIn e outras redes (`og:*` e `twitter:card` no `index.html`), com `frontend/public/og-image.jpg` (1200 × 630) montada a partir do print do desktop: cabeçalho, ranking numerado e placas do mapa.
+- Favicon `frontend/public/favicon.svg`: a placa numerada do mapa, com "1" em papel sobre tinta.
+- Contexto na primeira visita: o resumo do painel mostra o período do recorte ("80.175 acidentes entre 01/01/2021 e 30/09/2026"), e a ressalva termina com o link "Ver como o mapa é calculado", que leva à metodologia. Sem mudança de layout nem de cor (seção 9.1).
