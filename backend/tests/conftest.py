@@ -1,47 +1,36 @@
 import pandas as pd
 import pytest
 
-CABECALHO = (
-    "data_extracao;predial1;queda_arr;data;feridos;feridos_gr;mortes;morte_post;fatais;auto;taxi;lotacao;"
-    "onibus_urb;onibus_met;onibus_int;caminhao;moto;carroca;bicicleta;outro;cont_vit;ups;patinete;idacidente;"
-    "longitude;latitude;log1;log2;tipo_acid;dia_sem;hora;noite_dia;regiao;consorcio"
-)
+from app.core.config import Settings
+from tests.factories import SOURCE_HEADER
 
 
-def linha(
-    id_: str,
-    data: str = "2024-03-02 00:00:00",
-    hora: str = "12:30:00.0000000",
-    lat: str = "-30.0346",
-    lon: str = "-51.2177",
-    log1: str = "AV BORGES DE MEDEIROS",
-    log2: str = "",
-    ups: str = "1",
-    feridos: str = "0",
-    mortes: str = "0",
-) -> str:
-    """Uma linha no formato do CSV da Prefeitura, com valores padrão no centro de Porto Alegre."""
-    return (
-        f"2026-10-01 01:34:27;100;0.0;{data};{feridos};0;{mortes};0;0;1;0;0;0;0;0;0;0;0;0;0;0;{ups};0;"
-        f"{id_};{lon};{lat};{log1};{log2};COLISÃO;SÁBADO;{hora};DIA;CENTRO;"
+@pytest.fixture
+def write_csv(tmp_path):
+    def _write(rows: list[str], name: str = "cat_acidentes.csv"):
+        path = tmp_path / name
+        path.write_text("\n".join([SOURCE_HEADER, *rows]) + "\n", encoding="utf-8")
+        return path
+
+    return _write
+
+
+@pytest.fixture
+def read_rows(write_csv):
+    from app.pipeline.ingest import read_source_csv
+
+    def _read(rows: list[str]) -> pd.DataFrame:
+        return read_source_csv(write_csv(rows))
+
+    return _read
+
+
+@pytest.fixture
+def settings(tmp_path) -> Settings:
+    """Settings pointing at a temporary database, with N = 10 to keep the fixtures small."""
+    return Settings(
+        db_path=tmp_path / "test.db",
+        reports_dir=tmp_path,
+        backup_dir=tmp_path / "backup",
+        hotspot_min_accidents=10,
     )
-
-
-@pytest.fixture
-def escrever_csv(tmp_path):
-    def _escrever(linhas: list[str], nome: str = "cat_acidentes.csv"):
-        caminho = tmp_path / nome
-        caminho.write_text("\n".join([CABECALHO, *linhas]) + "\n", encoding="utf-8")
-        return caminho
-
-    return _escrever
-
-
-@pytest.fixture
-def ler(escrever_csv):
-    from app.ingestao import ler_csv
-
-    def _ler(linhas: list[str]) -> pd.DataFrame:
-        return ler_csv(escrever_csv(linhas))
-
-    return _ler

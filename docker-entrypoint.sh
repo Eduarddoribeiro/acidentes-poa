@@ -1,12 +1,12 @@
 #!/bin/sh
-# Sobe a API na hora. Se ainda não houver banco, baixa e carrega a base em segundo plano:
-# o servidor da Prefeitura é lento, e o provedor de hospedagem espera a porta abrir em poucos minutos.
-# Enquanto a carga não termina, a API responde 503 e a interface mostra o estado de erro com "Tentar de novo".
+# Starts the API right away. If there is no database yet, downloads and loads the dataset in the background:
+# the City's server is slow, and the hosting provider expects the port to open within a few minutes.
+# Until the load finishes, the API answers 503 and the interface shows the error state with "Try again".
 set -e
 
-if [ ! -f "${ACIDENTES_DB:-/app/data/processed/acidentes.db}" ]; then
-  echo "Banco não encontrado. Carregando a base em segundo plano."
-  python -m app.ingestao --baixar &
+if [ ! -f "${ACCIDENTS_DB_PATH:-/app/data/processed/accidents.db}" ]; then
+  echo "Database not found. Loading the dataset in the background."
+  python -m app.pipeline.ingest --download &
 fi
 
 exec uvicorn app.main:app --host 0.0.0.0 --port "${PORT:-8000}"
