@@ -1,0 +1,6 @@
+-r requirements.txt
+
+# Análise exploratória (notebooks/)
+jupyter>=1.0
+ipykernel>=6.29
+matplotlib>=3.8
