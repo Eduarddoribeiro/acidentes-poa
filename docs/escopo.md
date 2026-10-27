@@ -143,6 +143,6 @@ Não há cliente externo neste projeto. Pontos que dependem de decisão do próp
 |---|---|---|---|
 | 25/10/2026 | Escopo inicial | Planejamento | Rascunho |
 | 26/10/2026 | Escopo aceito; custo confirmado como gratuito (domínio opcional) | Eduardo | Aceito |
-| 27/10/2026 | N = 20 definido na análise exploratória (RN-01) | Análise da base | Proposto; Eduardo confirma |
+| 27/10/2026 | N = 20 definido na análise exploratória (RN-01) | Análise da base | Aceito por Eduardo |
 | 27/10/2026 | Tipo de via pela sigla do logradouro, pois a base não tem o campo (RN-05) | Análise da base | Aceito por Eduardo |
-| 27/10/2026 | Registros com data posterior à extração são descartados (motivo próprio) | Análise da base | Proposto; Eduardo confirma |
+| 27/10/2026 | Registros com data posterior à extração são descartados (motivo próprio) | Análise da base | Aceito por Eduardo |

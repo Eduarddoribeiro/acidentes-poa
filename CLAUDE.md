@@ -36,11 +36,12 @@ Antes de qualquer tarefa, leia `docs/escopo.md`. Ele define o que está no MVP, 
 
 ## Estado atual
 
-- Fase: MVP implementado localmente (M1 a M8, M10 a M12). Falta publicar (M9, deploy) e aprovar os commits.
+- Fase: MVP completo (M1 a M12), versionado no GitHub (`Eduarddoribeiro/acidentes-poa`) e publicado em https://acidentes-poa.onrender.com.
 - Base carregada: extração de 01/10/2026, 87.323 registros, 80.175 válidos, 1.093 pontos críticos com N = 20.
-- Ambiente: Python 3.12 em `backend/.venv`; Node 22. Rodar a carga com `python -m app.ingestao --baixar`.
-- Decisões a confirmar com o Eduardo: N = 20 e descarte de datas posteriores à extração (escopo, seção 15).
-- Próximo passo: publicar no Render (escolhido em 27/10/2026), com `render.yaml` e `Dockerfile` prontos. Falta o Eduardo criar a conta e conectar o repositório do GitHub.
+- Ambiente: Python 3.12 em `backend/.venv`; Node 22 (Vite 8 exige 22.12 ou mais novo). Rodar a carga com `python -m app.ingestao --baixar`.
+- Decisões confirmadas pelo Eduardo: N = 20 e descarte de datas posteriores à extração (escopo, seção 15).
+- Deploy: Render, plano gratuito, serviço `acidentes-poa` gerenciado pelo Blueprint (`render.yaml`), com deploy automático a cada push na `main`. A instância dorme sem uso e leva cerca de 1 minuto para acordar.
+- Próximo passo: itens da Fase 2 (escopo, seção 7), sempre passando pela regra de escopo.
 
 ## Histórico de atualizações
 
@@ -64,3 +65,13 @@ Antes de qualquer tarefa, leia `docs/escopo.md`. Ele define o que está no MVP, 
 - Deploy: Render no plano gratuito, escolhido pelo Eduardo. A API sobe na hora e carrega a base em segundo plano, porque o Render espera a porta abrir em poucos minutos.
 - Motivo: entregar o MVP completo para revisão antes do deploy.
 
+### 27/10/2026 (revisão antes do deploy)
+- Eduardo confirmou N = 20 e o descarte de registros com data posterior à extração; escopo (seção 15) atualizado.
+- Ferramentas de desenvolvimento do front atualizadas (Vite 5 → 8, Vitest 2 → 5, @vitejs/plugin-react 4 → 6, jest-dom 6 → 7); `vite.config.ts` passou a usar `defineConfig` de `vitest/config`. `npm audit` sem vulnerabilidades; build e 23 testes passando.
+- Dockerfile passou de `node:20-alpine` para `node:22-alpine` (Node 20 fora de suporte desde abril de 2026); README atualizado.
+- Motivo: fechar as pendências do MVP e eliminar 6 vulnerabilidades (2 críticas) antes de publicar.
+
+### 27/10/2026 (deploy)
+- M9 concluído: sistema publicado no Render em https://acidentes-poa.onrender.com, pelo Blueprint do repositório (commit `f294da6`). Conferido: `/api/health` ok, `/api/meta` com 80.175 registros aceitos, mapa, filtros e ranking funcionando.
+- README com a URL pública e o aviso sobre a demora na primeira visita do plano gratuito.
+- Motivo: fechar o MVP com o sistema acessível em uma URL pública.

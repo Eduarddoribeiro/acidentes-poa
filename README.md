@@ -2,6 +2,8 @@
 
 Sistema web que mostra os pontos críticos de acidentes de trânsito em Porto Alegre, a partir da base aberta da Prefeitura (#DataPoa / EPTC). Projeto de portfólio, com interface em português e inglês.
 
+**No ar:** https://acidentes-poa.onrender.com (plano gratuito do Render: depois de um tempo parado, a primeira visita pode levar cerca de um minuto para carregar).
+
 ![Painel no desktop: filtros e ranking à esquerda, mapa de calor com os pontos críticos numerados](docs/prints/desktop.png)
 
 <p>
