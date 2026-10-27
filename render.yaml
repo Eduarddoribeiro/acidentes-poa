@@ -1,0 +1,9 @@
+# Blueprint do Render (plano gratuito). Em render.com: New > Blueprint > escolher este repositório.
+services:
+  - type: web
+    name: acidentes-poa
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    autoDeploy: true
