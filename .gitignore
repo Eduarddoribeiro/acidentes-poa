@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# Node / front-end
+node_modules/
+frontend/dist/
+
+# Dados (a base baixada da Prefeitura não vai para o repositório)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Ambiente e segredos
+.env
+.env.*
+!.env.example
+
+# Sistema e editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
